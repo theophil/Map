@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @village.name %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @village.longitude %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @village.latitude %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @village.state %>
+</p>
+
+<p>
+  <strong>District:</strong>
+  <%= @village.district %>
+</p>
+
+<p>
+  <strong>Taluka:</strong>
+  <%= @village.taluka %>
+</p>
+
+<%= link_to 'Edit', edit_village_path(@village) %> |
+<%= link_to 'Back', villages_path %>
