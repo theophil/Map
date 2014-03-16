@@ -22,6 +22,9 @@ class VillageTest < ActiveSupport::TestCase
       destroy_villages
     end
 
+    should "show that def find_coordinates works" do
+    end
+
     should "shows that SAVED village should have decimal coordinates" do
       # village one is in factories
       @village1.longitude = 7.0
