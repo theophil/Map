@@ -1,7 +1,44 @@
 {
   "Unit Tests": {
     "coverage": {
+      "/vagrant/Map/app/models/village.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/vagrant/Map/app/models/village_activity.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
     },
-    "timestamp": 1395001432
+    "timestamp": 1395003329
   }
 }
