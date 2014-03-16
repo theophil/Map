@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'geocoder'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
@@ -27,21 +29,42 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'geocoder'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+# Use a gem for handling pagination
+gem 'will_paginate'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use a gem for handling date validation
+gem 'validates_timeliness'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+#from lab 8
+gem 'foundation-rails'
+gem 'simple_form'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# Additional gems that are very useful in Rails development
+group :development do
+  gem 'quiet_assets'
+  gem 'thin'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'wirble'
+  gem 'hirb'
+  gem 'populator3'
+  gem 'faker'
+end
+
+# Gems used only in testing
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'mocha', require: false
+  gem 'simplecov'
+  gem 'turn'
+  gem 'single_test'
+  # gem 'tconsole'  # issues with matchers and minitest, so skip for now
+end
