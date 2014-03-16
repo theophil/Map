@@ -12,13 +12,12 @@ class Village < ActiveRecord::Base
 	# #validates_numericality_of :latitude, only_decimal: true, allow_blank: false, on: :save #alterate syntax? :on => :save
 
 	# # instance methods
- #  	before_save :find_coordinates
+ 	#before_save :find_coordinates
 
- #  	private
- #  	def find_coordinates
- #  		#first index of coordinates
- #  		self.latitude = Geocoder.coordinates(self.name, self.taluka, self.district, self.state)[1]
- #  		#second index of coordinates
- #  		self.longitude = Geocoder.coordinates(self.name, self.taluka, self.district, self.state)[2]
- #  	end
+  	def find_coordinates
+  		#first index of coordinates
+  		self.latitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[1]
+  		#second index of coordinates
+  		self.longitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[2]
+  	end
 end

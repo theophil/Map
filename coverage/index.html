@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-16T20:55:30+00:00">2014-03-16T20:55:30+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-03-16T21:37:06+00:00">2014-03-16T21:37:06+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,8 +32,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>2</b> files in total.
-    <b>7</b> relevant lines. 
-    <span class="green"><b>7</b> lines covered</span> and
+    <b>10</b> relevant lines. 
+    <span class="green"><b>10</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -53,9 +53,9 @@
       <tr>
         <td class="strong"><a href="#671b42b5eee6678a17dce7778639f87cddba144e" class="src_link" title="app/models/village.rb">app/models/village.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>6</td>
-        <td>6</td>
+        <td>23</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -127,8 +127,8 @@
   <a name="Models"></a>
   <div>
     <b>2</b> files in total.
-    <b>7</b> relevant lines. 
-    <span class="green"><b>7</b> lines covered</span> and
+    <b>10</b> relevant lines. 
+    <span class="green"><b>10</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -148,9 +148,9 @@
       <tr>
         <td class="strong"><a href="#671b42b5eee6678a17dce7778639f87cddba144e" class="src_link" title="app/models/village.rb">app/models/village.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>6</td>
-        <td>6</td>
+        <td>23</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -296,8 +296,8 @@
     <h3>app/models/village.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -392,7 +392,7 @@
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby"> #  	before_save :find_coordinates</code>
+          <code class="ruby"> 	#before_save :find_coordinates</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -401,49 +401,43 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"> #  	private</code>
+          <code class="ruby">  	def find_coordinates</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby"> #  	def find_coordinates</code>
+          <code class="ruby">  		#first index of coordinates</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"> #  		#first index of coordinates</code>
+          <code class="ruby">  		self.latitude = Geocoder.coordinates(self.name+&quot;, &quot;+self.taluka+&quot;, &quot;+self.district+&quot;, &quot;+self.state)[1]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby"> #  		self.latitude = Geocoder.coordinates(self.name, self.taluka, self.district, self.state)[1]</code>
+          <code class="ruby">  		#second index of coordinates</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"> #  		#second index of coordinates</code>
+          <code class="ruby">  		self.longitude = Geocoder.coordinates(self.name+&quot;, &quot;+self.taluka+&quot;, &quot;+self.district+&quot;, &quot;+self.state)[2]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby"> #  		self.longitude = Geocoder.coordinates(self.name, self.taluka, self.district, self.state)[2]</code>
+          <code class="ruby">  	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby"> #  	end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">end</code>
