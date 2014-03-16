@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @village_activity.name %>
+</p>
+
+<p>
+  <strong>Village:</strong>
+  <%= @village_activity.village_id %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @village_activity.activity_id %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @village_activity.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @village_activity.end_date %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @village_activity.active %>
+</p>
+
+<%= link_to 'Edit', edit_village_activity_path(@village_activity) %> |
+<%= link_to 'Back', village_activities_path %>

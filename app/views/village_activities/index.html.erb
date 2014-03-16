@@ -1,0 +1,37 @@
+<h1>Listing village_activities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Village</th>
+      <th>Activity</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @village_activities.each do |village_activity| %>
+      <tr>
+        <td><%= village_activity.name %></td>
+        <td><%= village_activity.village_id %></td>
+        <td><%= village_activity.activity_id %></td>
+        <td><%= village_activity.start_date %></td>
+        <td><%= village_activity.end_date %></td>
+        <td><%= village_activity.active %></td>
+        <td><%= link_to 'Show', village_activity %></td>
+        <td><%= link_to 'Edit', edit_village_activity_path(village_activity) %></td>
+        <td><%= link_to 'Destroy', village_activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Village activity', new_village_activity_path %>

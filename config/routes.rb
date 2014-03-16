@@ -1,4 +1,6 @@
 Map::Application.routes.draw do
+  resources :village_activities
+
   resources :villages
 
   resources :activities
