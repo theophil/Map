@@ -23,15 +23,16 @@ class VillageTest < ActiveSupport::TestCase
     end
 
     should "show that def find_coordinates works" do
+      assert_equal [20.8365072, 78.7093556], @juvadi.find_coordinates 
     end
 
-    should "shows that SAVED village should have decimal coordinates" do
+    should "shows that SAVED village can (and should) have decimal coordinates" do
       # village one is in factories
-      @village1.longitude = 7.0
-      @village1.latitude = 23.4
-      @village1.save #got rid of the bang
-      @village1.reload # reload again from the database
-      assert @village1.valid?
+      @juvadi.update_attribute(:latitude, 23.4)
+      @juvadi.update_attribute(:longitude, 23.5)
+      @juvadi.save #got rid of the bang
+      @juvadi.reload # reload again from the database
+      assert @juvadi.valid?
     end
 
   end

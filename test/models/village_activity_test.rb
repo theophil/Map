@@ -30,7 +30,7 @@ class VillageActivityTest < ActiveSupport::TestCase
 
   # set up context
   include Contexts
-  context "Creating a village_activity instructor context" do
+  context "Creating a village_activity context" do
     setup do 
       create_village_activities
     end
@@ -40,14 +40,14 @@ class VillageActivityTest < ActiveSupport::TestCase
     end
 
     should "not allow the same activity to be assigned twice to the same village" do
-      bad_assignment = FactoryGirl.build(:village_activity, instructor: @mark, village_activity: @village_activity4)
+      bad_assignment = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1)
       deny bad_assignment.valid?
     end
 
     should "check to make sure the end date is on or after the start date" do
-      @bad_village_activity = FactoryGirl.build(:village_activity, village: @village1, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 5.days.from_now.to_date)
+      @bad_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 5.days.from_now.to_date)
       deny @bad_village_activity.valid?
-      @okay_village_activity = FactoryGirl.build(:village_activity, village: @village1, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 9.days.from_now.to_date)
+      @okay_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 9.days.from_now.to_date)
       assert @okay_village_activity.valid?
     end
 
