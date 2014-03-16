@@ -17,9 +17,20 @@ class VillageActivityTest < ActiveSupport::TestCase
   should_not allow_value(0).for(:activity_id)
   should_not allow_value(50.50).for(:activity_id)
 
+  should allow_value(Date.today).for(:start_date)
+  should allow_value(1.day.from_now.to_date).for(:start_date)
+  should_not allow_value(1.day.ago.to_date).for(:start_date)
+  should_not allow_value("bad").for(:start_date)
+  should_not allow_value(2).for(:start_date)
+  should_not allow_value(3.14159).for(:start_date)
+  
+  should_not allow_value("bad").for(:end_date)
+  should_not allow_value(2).for(:end_date)
+  should_not allow_value(3.14159).for(:end_date) 
+
   # set up context
   include Contexts
-  context "Creating a camp instructor context" do
+  context "Creating a village_activity instructor context" do
     setup do 
       create_village_activities
     end
@@ -29,13 +40,20 @@ class VillageActivityTest < ActiveSupport::TestCase
     end
 
     should "not allow the same activity to be assigned twice to the same village" do
-      bad_assignment = FactoryGirl.build(:village_activity, instructor: @mark, camp: @camp4)
+      bad_assignment = FactoryGirl.build(:village_activity, instructor: @mark, village_activity: @village_activity4)
       deny bad_assignment.valid?
+    end
+
+    should "check to make sure the end date is on or after the start date" do
+      @bad_village_activity = FactoryGirl.build(:village_activity, village: @village1, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 5.days.from_now.to_date)
+      deny @bad_village_activity.valid?
+      @okay_village_activity = FactoryGirl.build(:village_activity, village: @village1, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 9.days.from_now.to_date)
+      assert @okay_village_activity.valid?
     end
 
     # Commented because I have not yet decided how to do use active
     # should "not allow an activity to be assigned an inactive village" do
-    #   bad_assignment = FactoryGirl.build(:village_activity, instructor: @mark, camp: @camp3)
+    #   bad_assignment = FactoryGirl.build(:village_activity, instructor: @mark, village_activity: @village_activity3)
     #   deny bad_assignment.valid?
     # end
 
