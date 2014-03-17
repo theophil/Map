@@ -16,7 +16,7 @@ module Contexts
 	end
 
 	def create_village_activities
-		@va1 = FactoryGirl.create(:village_actvity, village: @village1, activity: @activity1)
+		@va1 = FactoryGirl.create(:village_activity, village: @juvadi, activity: @activity1)
 	end
 
 	def destroy_village_activities

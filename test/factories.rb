@@ -4,9 +4,11 @@ FactoryGirl.define do
 		name "Agricultural Development"
 	end
 
-	factory :village_activities do
+	factory :village_activity do
 		association :village
 		association :activity
+    start_date Date.today
+    end_date Date.tomorrow
 	end
 
   factory :village do
