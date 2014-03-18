@@ -7,6 +7,7 @@ class CreateVillages < ActiveRecord::Migration
       t.string :state
       t.string :district
       t.string :taluka
+      t.boolean :active
 
       t.timestamps
     end
