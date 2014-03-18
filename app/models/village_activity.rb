@@ -4,7 +4,6 @@ class VillageActivity < ActiveRecord::Base
 	belongs_to :activity
 
 	#validations
-	validates_presence_of :name
 	validates :activity_id, presence: true, numericality: { greater_than: 0, only_integer: true }
   	validates :village_id, presence: true, numericality: { greater_than: 0, only_integer: true }
 

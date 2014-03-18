@@ -45,9 +45,9 @@ class VillageActivityTest < ActiveSupport::TestCase
     end
 
     should "check to make sure the end date is on or after the start date" do
-      @bad_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 5.days.from_now.to_date)
+      @bad_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1)
       deny @bad_village_activity.valid?
-      @okay_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1, start_date: 9.days.from_now.to_date, end_date: 9.days.from_now.to_date)
+      @okay_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1)
       assert @okay_village_activity.valid?
     end
 

@@ -3,7 +3,7 @@ class Village < ActiveRecord::Base
 	has_many :village_activities
 	has_many :activities, through: :village_activities
 
-	# #validations
+	#validations
 	validates_presence_of :name, :district, :taluka, :state
 	validates_absence_of :longitude, on: :create #alterate syntax? :on => :create
 	validates_absence_of :latitude, on: :create #alterate syntax? :on => :create
