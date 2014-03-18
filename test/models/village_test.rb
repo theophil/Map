@@ -24,9 +24,10 @@ class VillageTest < ActiveSupport::TestCase
 
     should "show that def find_coordinates works" do
       @juvadi.find_coordinates
-      assert_equal Geocoder.coordinates("Juvadi, Seloo, Wardha, Maharashtra")[1], @juvadi.latitude 
-      assert_equal Geocoder.coordinates("Juvadi, Seloo, Wardha, Maharashtra")[2], @juvadi.longitude
+      assert_in_delta(20.8365072, @juvadi.latitude, 0.00001)
+      assert_in_delta(78.7093556, @juvadi.longitude, 0.00001)
     end
+
 
     # should "shows that SAVED village can (and should) have decimal coordinates" do
     #   # village one is in factories

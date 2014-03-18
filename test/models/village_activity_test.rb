@@ -18,8 +18,8 @@ class VillageActivityTest < ActiveSupport::TestCase
   should_not allow_value(50.50).for(:activity_id)
 
   should allow_value(Date.today).for(:start_date)
-  should allow_value(1.day.from_now.to_date).for(:start_date)
-  should_not allow_value(1.day.ago.to_date).for(:start_date)
+  should allow_value(1.day.ago.to_date).for(:start_date)
+  should_not allow_value(1.day.from_now.to_date).for(:start_date)
   should_not allow_value("bad").for(:start_date)
   should_not allow_value(2).for(:start_date)
   should_not allow_value(3.14159).for(:start_date)

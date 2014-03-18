@@ -16,8 +16,8 @@ class Village < ActiveRecord::Base
 
   	def find_coordinates
   		#first index of coordinates
-  		self.latitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[1]
+  		self.latitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[0]
   		#second index of coordinates
-  		self.longitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[2]
+  		self.longitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[1]
   	end
 end
