@@ -31,7 +31,7 @@ class VillageActivityTest < ActiveSupport::TestCase
   # set up context
   include Contexts
   context "Creating a village_activity context" do
-    setup do 
+    setup do
       create_village_activities
     end
     

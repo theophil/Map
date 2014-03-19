@@ -1,6 +1,36 @@
 {
   "Unit Tests": {
     "coverage": {
+      "/vagrant/Map/app/helpers/activities_helper.rb": [
+        1,
+        null
+      ],
+      "/vagrant/Map/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/vagrant/Map/app/helpers/village_activities_helper.rb": [
+        1,
+        null
+      ],
+      "/vagrant/Map/app/helpers/villages_helper.rb": [
+        1,
+        null
+      ],
+      "/vagrant/Map/app/models/activity.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
       "/vagrant/Map/app/models/village_activity.rb": [
         1,
         null,
@@ -13,9 +43,43 @@
         null,
         9,
         1,
+        null,
+        1,
+        null,
+        1,
+        40,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/vagrant/Map/app/models/village.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
         null
       ]
     },
-    "timestamp": 1395150784
+    "timestamp": 1395193888
   }
 }

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140316010750) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140316010750) do
     t.string   "state"
     t.string   "district"
     t.string   "taluka"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

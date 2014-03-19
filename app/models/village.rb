@@ -5,14 +5,16 @@ class Village < ActiveRecord::Base
 
 	#validations
 	validates_presence_of :name, :district, :taluka, :state
-	validates_absence_of :longitude, on: :create #alterate syntax? :on => :create
-	validates_absence_of :latitude, on: :create #alterate syntax? :on => :create
-	# #are the below neccessary if the above specifies on create?
-	# #validates_numericality_of :longitude, only_decimal: true, allow_blank: false, on: :save #alterate syntax? :on => :save
-	# #validates_numericality_of :latitude, only_decimal: true, allow_blank: false, on: :save #alterate syntax? :on => :save
+	validates_absence_of :longitude, on: :create
+	validates_absence_of :latitude, on: :create
 
-	# # instance methods
- 	#before_save :find_coordinates
+	#scopes
+	scope :active, -> { where(active: true) }
+  	scope :inactive, -> { where(active: false) }
+  	#scope :alphabetical, -> { order('name') }
+
+	#instance methods
+ 	before_save :find_coordinates
 
   	def find_coordinates
   		#first index of coordinates

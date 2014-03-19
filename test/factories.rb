@@ -7,8 +7,8 @@ FactoryGirl.define do
 	factory :village_activity do
 		association :village
 		association :activity
-    start_date Date.today
-    end_date Date.tomorrow
+    start_date Date.yesterday
+    end_date 2.days.ago.to_date
 	end
 
   factory :village do
