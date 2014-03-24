@@ -40,15 +40,15 @@ class VillageActivityTest < ActiveSupport::TestCase
     end
 
     should "not allow the same activity to be assigned twice to the same village" do
-      bad_assignment = FactoryGirl.build(:village_activity, village: @juvadi, activity: @activity1)
+      bad_assignment = FactoryGirl.build(:village_activity)
       deny bad_assignment.valid?
     end
 
     should "check to make sure the end date is on or after the start date" do
-      @bad_village_activity = FactoryGirl.build(:village_activity, start_date: Date.yesterday, end_date: 2.days.from_now.to_date)
-      deny @bad_village_activity.valid?
-      @okay_village_activity = FactoryGirl.build(:village_activity)
-      assert @okay_village_activity.valid?
+      bad_village_activity = FactoryGirl.build(:village_activity, start_date: Date.yesterday, end_date: 2.days.from_now.to_date)
+      deny bad_village_activity.valid?
+      okay_village_activity = FactoryGirl.build(:village_activity)
+      assert okay_village_activity.valid?
     end
 
     # Commented because I have not yet decided how to do use active
