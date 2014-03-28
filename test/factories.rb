@@ -2,6 +2,7 @@ FactoryGirl.define do
 
 	factory :activity do
 		name "Agricultural Development"
+    active true
 	end
 
 	factory :village_activity do
@@ -18,6 +19,7 @@ FactoryGirl.define do
   	state "Maharashtra"
   	district "Wardha"
   	taluka "Seloo"
+    active true
   end
 
 end
