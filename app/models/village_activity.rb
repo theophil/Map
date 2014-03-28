@@ -31,7 +31,7 @@ class VillageActivity < ActiveRecord::Base
   
   def activity_is_active_in_system
     all_activity_ids = Activity.active.to_a.map(&:id)
-    unless all_activitys_ids.include?(self.activity_id)
+    unless all_activity_ids.include?(self.activity_id)
       errors.add(:activity, "is not an active activity in the system")
     end
   end
