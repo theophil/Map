@@ -10,7 +10,7 @@ class VillageTest < ActiveSupport::TestCase
   should validate_presence_of(:state)
   should validate_presence_of(:district)
   should validate_presence_of(:taluka)
-  #should validate_uniqueness_of(:name).case_insensitive
+  should validate_uniqueness_of(:name).case_insensitive
 
   #set up context
   include Contexts
