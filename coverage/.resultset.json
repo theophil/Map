@@ -1,38 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/vagrant/Map/app/helpers/activities_helper.rb": [
-        1,
-        null
-      ],
-      "/vagrant/Map/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/vagrant/Map/app/helpers/village_activities_helper.rb": [
-        1,
-        null
-      ],
-      "/vagrant/Map/app/helpers/villages_helper.rb": [
-        1,
-        null
-      ],
-      "/vagrant/Map/app/models/activity.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        44,
-        1,
-        null,
-        null
-      ],
-      "/vagrant/Map/app/models/village_activity.rb": [
+      "/vagrant/map/app/models/village.rb": [
         1,
         null,
         1,
@@ -41,39 +10,29 @@
         null,
         1,
         1,
-        1,
-        null,
-        12,
-        1,
-        null,
-        null,
-        1,
-        1,
         null,
         null,
         null,
-        null,
-        null,
-        null,
+        3,
+        3,
+        2,
         null,
         null,
         1,
-        43,
-        43,
-        37,
-        null,
-        null,
         null,
         1,
-        43,
-        43,
-        37,
+        1,
+        8,
+        8,
         null,
+        8,
+        null,
+        8,
         null,
         null,
         null
       ],
-      "/vagrant/Map/app/models/village.rb": [
+      "/vagrant/map/app/models/village_activity.rb": [
         1,
         null,
         1,
@@ -84,23 +43,37 @@
         1,
         1,
         null,
-        null,
-        44,
+        1,
         1,
         null,
         null,
-        null,
+        1,
         1,
         null,
+        null,
         1,
+        0,
+        0,
         null,
-        9,
         null,
-        9,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
         null,
         null
       ]
     },
-    "timestamp": 1395973425
+    "timestamp": 1396904415
   }
 }

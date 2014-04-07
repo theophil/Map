@@ -5,9 +5,10 @@ class Activity < ActiveRecord::Base
 
 	# #validations
 	validates_presence_of :name
+	validates :name, uniqueness: { case_sensitive: false }
 
 	#scopes
 	scope :active, -> { where(active: true) }
   	scope :inactive, -> { where(active: false) }
-  	#scope :alphabetical, -> { order('name') }
-end
+  	scope :alphabetical, -> { order('name') }
+end 

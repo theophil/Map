@@ -4,22 +4,26 @@ class Village < ActiveRecord::Base
 	has_many :activities, through: :village_activities
 
 	#validations
-	validates_presence_of :name, :district, :taluka, :state
-	validates_absence_of :longitude, on: :create
-	validates_absence_of :latitude, on: :create
+	validates_presence_of :district, :taluka, :state
+	validates_presence_of :name, uniqueness: { case_sensitive: false }
+
 
 	#scopes
 	scope :active, -> { where(active: true) }
   	scope :inactive, -> { where(active: false) }
-  	#scope :alphabetical, -> { order('name') }
+  	scope :alphabetical, -> { order('name') }
 
 	#instance methods
  	before_save :find_coordinates
 
+ 	private
   	def find_coordinates
+  		return nil if self.name.nil? # && self.taluka.nil? && self.district.nil? && self.state.nil?
+  		coords = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)
   		#first index of coordinates
-  		self.latitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[0]
+  		self.latitude = coords[0]
   		#second index of coordinates
-  		self.longitude = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)[1]
+  		self.longitude = coords[1]
+
   	end
 end

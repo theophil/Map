@@ -1,28 +1,28 @@
 module Contexts
 	def create_villages
 		@juvadi = FactoryGirl.create(:village)
-		@inactive_village = FactoryGirl.create(:village, active: false)
+		@ridhora = FactoryGirl.create(:village, name: "Ridhora", active: false)
 	end
 
 	def destroy_villages
 		@juvadi.destroy
-		@inactive_village.destroy
+		@ridhora.destroy
 	end
 
 	def create_activities
-		@activity1 = FactoryGirl.create(:activity)
-		@inactive_activity = FactoryGirl.create(:activity, active: false)
+		@agdev = FactoryGirl.create(:activity)
+		@waterdev = FactoryGirl.create(:activity, name: "Water Development", active: false)
 	end
 
 	def destroy_activities
-		@activity1.destroy
-		@inactive_activity.destroy
+		@agdev.destroy
+		@waterdev.destroy
 	end
 
 	def create_village_activities
 		create_villages
 		create_activities
-		@va1 = FactoryGirl.create(:village_activity, village: @juvadi, activity: @activity1)
+		@va1 = FactoryGirl.create(:village_activity, village: @juvadi, activity: @agdev)
 	end
 
 	def destroy_village_activities
