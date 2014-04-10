@@ -12,11 +12,13 @@ module Contexts
 	def create_activities
 		@agdev = FactoryGirl.create(:activity)
 		@waterdev = FactoryGirl.create(:activity, name: "Water Development", active: false)
+		@self_help = FactoryGirl.create(:activity, name: "Self Help Group")
 	end
 
 	def destroy_activities
 		@agdev.destroy
 		@waterdev.destroy
+		@self_help.destroy
 	end
 
 	def create_village_activities

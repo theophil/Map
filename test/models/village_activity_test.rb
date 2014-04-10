@@ -40,15 +40,15 @@ class VillageActivityTest < ActiveSupport::TestCase
     end
 
     # Unsure how to define model's method thus not using this test
-    # should "not allow the same activity to be assigned twice to the same village" do
-    #   bad_assignment = FactoryGirl.build(:village_activity, village: @juvadi, activity: @agdev)
-    #   deny bad_assignment.valid?
-    # end
+    should "not allow the same activity to be assigned twice to the same village" do
+      bad_assignment = FactoryGirl.build(:village_activity, village: @juvadi, activity: @agdev)
+      deny bad_assignment.valid?
+    end
 
     should "check to make sure the end date is on or after the start date" do
       bad_village_activity = FactoryGirl.build(:village_activity,village: @juvadi, activity: @agdev ,start_date: Date.yesterday, end_date: 2.days.ago.to_date)
       deny bad_village_activity.valid?
-      okay_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @agdev, start_date: Date.today, end_date: 2.days.from_now.to_date)
+      okay_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @self_help, start_date: Date.today, end_date: 3.days.from_now.to_date)
       assert okay_village_activity.valid?
     end
 
