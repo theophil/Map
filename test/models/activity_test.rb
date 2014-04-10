@@ -21,8 +21,8 @@ class ActivityTest < ActiveSupport::TestCase
     end
 
     should "Show that that activity's active scope works" do
-    	assert_equal 1, Activity.active.size
-    	assert_equal ["Agricultural Development"], Activity.active.all.map{|a| a.name}
+    	assert_equal 2, Activity.active.size
+    	assert_equal ["Agricultural Development", "Self Help Group"], Activity.active.all.map{|a| a.name}
     end
 
     should "show that activity's inactive scope works" do
@@ -31,7 +31,7 @@ class ActivityTest < ActiveSupport::TestCase
     end
 
     should "show that activity's alphabetical scope works correctly" do
-    	assert_equal ["Agricultural Development", "Water Development"], Activity.alphabetical.all.map { |a| a.name }
+    	assert_equal ["Agricultural Development", "Self Help Group", "Water Development"], Activity.alphabetical.all.map { |a| a.name }
     end
 
   end # contexts
