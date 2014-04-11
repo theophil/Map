@@ -69,6 +69,6 @@ class VillagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def village_params
-      params.require(:village).permit(:name, :longitude, :latitude, :state, :district, :taluka)
+      params.require(:village).permit(:name, :state, :district, :taluka)
     end
 end
