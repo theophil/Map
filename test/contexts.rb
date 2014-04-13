@@ -1,7 +1,9 @@
 module Contexts
 	def create_villages
 		@juvadi = FactoryGirl.create(:village)
+		sleep 1
 		@ridhora = FactoryGirl.create(:village, name: "Ridhora", active: false)
+		sleep 1
 	end
 
 	def destroy_villages
