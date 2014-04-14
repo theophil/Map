@@ -1,9 +1,9 @@
 class VillageActivity < ActiveRecord::Base
-	#relationships
+	# Relationships
 	belongs_to :village
 	belongs_to :activity
 
-	#validations
+	# Validations
 	validates :activity_id, presence: true, numericality: { greater_than: 0, only_integer: true }
   	validates :village_id, presence: true, numericality: { greater_than: 0, only_integer: true }
 
