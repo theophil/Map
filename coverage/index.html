@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-04-10T22:33:21-04:00">2014-04-10T22:33:21-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-04-14T17:57:26-04:00">2014-04-14T17:57:26-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         10.65
+         11.41
        </span>
     </span> hits/line)
   </h2>
@@ -97,7 +97,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>7.3</td>
+        <td>7.8</td>
       </tr>
       
       <tr>
@@ -107,7 +107,7 @@
         <td>16</td>
         <td>16</td>
         <td>0</td>
-        <td>8.9</td>
+        <td>9.1</td>
       </tr>
       
       <tr>
@@ -117,7 +117,7 @@
         <td>22</td>
         <td>22</td>
         <td>0</td>
-        <td>14.9</td>
+        <td>16.3</td>
       </tr>
       
     </tbody>
@@ -170,7 +170,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         11.49
+         12.32
        </span>
     </span> hits/line)
   </h2>
@@ -202,7 +202,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>7.3</td>
+        <td>7.8</td>
       </tr>
       
       <tr>
@@ -212,7 +212,7 @@
         <td>16</td>
         <td>16</td>
         <td>0</td>
-        <td>8.9</td>
+        <td>9.1</td>
       </tr>
       
       <tr>
@@ -222,7 +222,7 @@
         <td>22</td>
         <td>22</td>
         <td>0</td>
-        <td>14.9</td>
+        <td>16.3</td>
       </tr>
       
     </tbody>
@@ -585,8 +585,8 @@
           <code class="ruby">	#scopes</code>
         </li>
       
-        <li class="covered" data-hits="48" data-linenumber="11">
-          <span class="hits">48</span>
+        <li class="covered" data-hits="52" data-linenumber="11">
+          <span class="hits">52</span>
           
           <code class="ruby">	scope :active, -&gt; { where(active: true) }</code>
         </li>
@@ -693,8 +693,8 @@
           <code class="ruby">	#scopes</code>
         </li>
       
-        <li class="covered" data-hits="48" data-linenumber="12">
-          <span class="hits">48</span>
+        <li class="covered" data-hits="52" data-linenumber="12">
+          <span class="hits">52</span>
           
           <code class="ruby">	scope :active, -&gt; { where(active: true) }</code>
         </li>
@@ -879,8 +879,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="11">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="16" data-linenumber="11">
+          <span class="hits">16</span>
           
           <code class="ruby">  	validates_date :start_date, :on_or_before =&gt; lambda { Date.today }, :on_or_before_message =&gt; &quot;should have started today or in the past&quot;, :on =&gt; :create</code>
         </li>
@@ -888,7 +888,7 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  	validates_date :end_date, :on_or_after =&gt; :start_date</code>
+          <code class="ruby">  	validates_date :end_date, :on_or_after =&gt; :start_date, allow_blank: true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -927,8 +927,8 @@
           <code class="ruby">  	def activity_is_not_already_assigned_to_village</code>
         </li>
       
-        <li class="covered" data-hits="45" data-linenumber="19">
-          <span class="hits">45</span>
+        <li class="covered" data-hits="49" data-linenumber="19">
+          <span class="hits">49</span>
           
           <code class="ruby">    unless VillageActivity.where(activity_id: self.activity_id, village_id: self.village_id).to_a.empty?</code>
         </li>
@@ -963,20 +963,20 @@
           <code class="ruby">      def village_is_active_in_system</code>
         </li>
       
-        <li class="covered" data-hits="45" data-linenumber="25">
-          <span class="hits">45</span>
+        <li class="covered" data-hits="49" data-linenumber="25">
+          <span class="hits">49</span>
           
           <code class="ruby">    all_village_ids = Village.active.to_a.map(&amp;:id)</code>
         </li>
       
-        <li class="covered" data-hits="45" data-linenumber="26">
-          <span class="hits">45</span>
+        <li class="covered" data-hits="49" data-linenumber="26">
+          <span class="hits">49</span>
           
           <code class="ruby">    unless all_village_ids.include?(self.village_id)</code>
         </li>
       
-        <li class="covered" data-hits="37" data-linenumber="27">
-          <span class="hits">37</span>
+        <li class="covered" data-hits="41" data-linenumber="27">
+          <span class="hits">41</span>
           
           <code class="ruby">      errors.add(:village, &quot;is not an active village in the system&quot;)</code>
         </li>
@@ -1005,20 +1005,20 @@
           <code class="ruby">  def activity_is_active_in_system</code>
         </li>
       
-        <li class="covered" data-hits="45" data-linenumber="32">
-          <span class="hits">45</span>
+        <li class="covered" data-hits="49" data-linenumber="32">
+          <span class="hits">49</span>
           
           <code class="ruby">    all_activity_ids = Activity.active.to_a.map(&amp;:id)</code>
         </li>
       
-        <li class="covered" data-hits="45" data-linenumber="33">
-          <span class="hits">45</span>
+        <li class="covered" data-hits="49" data-linenumber="33">
+          <span class="hits">49</span>
           
           <code class="ruby">    unless all_activity_ids.include?(self.activity_id)</code>
         </li>
       
-        <li class="covered" data-hits="37" data-linenumber="34">
-          <span class="hits">37</span>
+        <li class="covered" data-hits="41" data-linenumber="34">
+          <span class="hits">41</span>
           
           <code class="ruby">      errors.add(:activity, &quot;is not an active activity in the system&quot;)</code>
         </li>

@@ -9,7 +9,7 @@ class VillageActivity < ActiveRecord::Base
   	validates_presence_of :start_date
 
   	validates_date :start_date, :on_or_before => lambda { Date.today }, :on_or_before_message => "should have started today or in the past", :on => :create
-  	validates_date :end_date, :on_or_after => :start_date
+  	validates_date :end_date, :on_or_after => :start_date, allow_blank: true
 
   	validate :activity_is_not_already_assigned_to_village
   	validate :village_is_active_in_system
