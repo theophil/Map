@@ -24,6 +24,7 @@ class VillageActivityTest < ActiveSupport::TestCase
   should_not allow_value(2).for(:start_date)
   should_not allow_value(3.14159).for(:start_date)
   
+  should allow_value(nil).for(:end_date)
   should_not allow_value("bad").for(:end_date)
   should_not allow_value(2).for(:end_date)
   should_not allow_value(3.14159).for(:end_date) 
