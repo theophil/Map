@@ -16,8 +16,8 @@ class VillageActivity < ActiveRecord::Base
 	validate :activity_is_active_in_system
 
   #scopes
-  scope :alphabetical_by_village, -> { joins(:village).order('name') }
-  scope :alphabetical_by_activity, -> { joins(:activity).order('name') }
+  # scope :alphabetical_by_village, -> { joins(:village).order('name') }
+  # scope :alphabetical_by_activity, -> { joins(:activity).order('name') }
 
   	
   	def activity_is_not_already_assigned_to_village
