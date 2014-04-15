@@ -25,10 +25,7 @@
   <%= @village_activity.end_date %>
 </p>
 
-<p>
-  <strong>Active:</strong>
-  <%= @village_activity.active %>
-</p>
+<%# image_tag @village_activity.create_map_link %>
 
 <%= link_to 'Edit', edit_village_activity_path(@village_activity) %> |
 <%= link_to 'Back', village_activities_path %> |

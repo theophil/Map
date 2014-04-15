@@ -1,11 +1,9 @@
 <%= simple_form_for(@village_activity, html: { class: 'form-horizontal' }) do |f| %>
   <fieldset>
       <legend><%= controller.action_name.capitalize %> VillageActivity</legend>
-      <%= f.input :name %>
-      <%= f.input :activity_ids, label: "Activity(s)", collection: Activity.active.alphabetical, as: :check_boxes %>
-      <%= f.input :village_ids, label: "Village(s)", collection: Village.active.alphabetical, as: :check_boxes %>
+      <%= f.input :activity_id, label: "Activity", collection: Activity.active.alphabetical %>
+      <%= f.input :village_id, label: "Village", collection: Village.active.alphabetical %>
     <%= f.input :start_date, as: :date,start_year: Date.today.year - 10, end_year: Date.today.year - 10, order: [:month, :day, :year], include_blank: true %>
-    <%= f.input :active %>
     <div class="form-actions">
       <%= f.submit nil, class: 'button' %>
       <%= link_to 'Cancel', village_activities_path, :class => 'button secondary' %>

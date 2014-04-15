@@ -1,14 +1,12 @@
-<h1>Listing village_activities</h1>
+<h1>Listing "Village-Activities"</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Village</th>
       <th>Activity</th>
       <th>Start date</th>
       <th>End date</th>
-      <th>Active</th>
       <th></th>
       <th></th>
     </tr>
@@ -17,12 +15,10 @@
   <tbody>
     <% @village_activities.each do |village_activity| %>
       <tr>
-        <td><%= village_activity.name %></td>
-        <td><%= village_activity.village_id %></td>
-        <td><%= village_activity.activity_id %></td>
+        <td><%= link_to village_activity.village_name, village_activity_path(village_activity) %></td>        
+        <td><%= link_to village_activity.activity_name, village_activity_path(village_activity) %></td>
         <td><%= village_activity.start_date %></td>
         <td><%= village_activity.end_date %></td>
-        <td><%= village_activity.active %></td>
         <td><%= link_to 'Show', village_activity %></td>
         <td><%= link_to 'Edit', edit_village_activity_path(village_activity), class: "button tiny radius" %></td>
       </tr>

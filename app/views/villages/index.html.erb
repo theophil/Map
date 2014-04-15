@@ -1,11 +1,9 @@
 <h1>Listing villages</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Longitude</th>
-      <th>Latitude</th>
       <th>State</th>
       <th>District</th>
       <th>Taluka</th>
@@ -18,8 +16,6 @@
     <% @villages.each do |village| %>
       <tr>
         <td><%= village.name %></td>
-        <td><%= village.longitude %></td>
-        <td><%= village.latitude %></td>
         <td><%= village.state %></td>
         <td><%= village.district %></td>
         <td><%= village.taluka %></td>

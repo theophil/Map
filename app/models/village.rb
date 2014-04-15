@@ -26,4 +26,5 @@ class Village < ActiveRecord::Base
   		self.longitude = coords[1]
       coords
   	end
+
 end
