@@ -5,6 +5,17 @@ Map::Application.routes.draw do
 
   resources :activities
 
+    # Additional routes to create for this project
+  
+  # Set the root url
+  root 'home#index'  
+
+  # Semi-static page routes
+  get 'home/index', to: 'home#index', as: :home
+  get 'home/about', to: 'home#about', as: :about
+  get 'home/contact', to: 'home#contact', as: :contact
+  get 'home/privacy', to: 'home#privacy', as: :privacy
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

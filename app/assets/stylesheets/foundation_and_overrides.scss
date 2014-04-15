@@ -32,6 +32,11 @@
 
 // Grid
 
+.body
+{
+background-image:url('chessboard.gif');
+}
+
 // $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
@@ -57,7 +62,7 @@
 // We use these as default colors throughout
 // $primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
+   $alert-color: #E6172C;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
@@ -316,7 +321,7 @@
 // $include-html-button-classes: $include-html-classes;
 
 // We use these to build padding for buttons.
-// $button-tny: rem-calc(10);
+   $button-tny: rem-calc(6);
 // $button-sml: rem-calc(14);
 // $button-med: rem-calc(16);
 // $button-lrg: rem-calc(18);
@@ -329,7 +334,7 @@
 // $button-font-family: $body-font-family;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
-// $button-font-tny: rem-calc(11);
+   $button-font-tny: rem-calc(9);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);
 // $button-font-lrg: rem-calc(20);
@@ -1033,10 +1038,10 @@
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-// $table-even-row-bg: #f9f9f9  ;
+$table-even-row-bg: #BEB6B6;
 
 // These control the table cell border style
-// $table-border-style: solid;
+   $table-border-style: none;
 // $table-border-size: 1px;
 // $table-border-color: #ddd;
 
@@ -1052,6 +1057,10 @@
 // $table-row-font-size: rem-calc(14);
 // $table-row-font-color: #222;
 // $table-line-height: rem-calc(18);
+
+.table {
+    border-collapse:collapse;
+ }
 
 // These are for controlling the display and margin of tables
 // $table-display: table-cell;
@@ -1197,7 +1206,7 @@
 //
 // VISIBILITY CLASSES
 //
-
+   select.date { width: 90px; }
 // $include-html-visibility-classes: $include-html-classes;
 // $include-table-visibility-classes: true;
 // $include-legacy-visibility-classes: true;
