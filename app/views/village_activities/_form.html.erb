@@ -1,41 +1,15 @@
-<%= form_for(@village_activity) do |f| %>
-  <% if @village_activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@village_activity.errors.count, "error") %> prohibited this village_activity from being saved:</h2>
-
-      <ul>
-      <% @village_activity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for(@village_activity, html: { class: 'form-horizontal' }) do |f| %>
+  <fieldset>
+      <legend><%= controller.action_name.capitalize %> VillageActivity</legend>
+      <%= f.input :name %>
+      <%= f.input :activity_ids, label: "Activity(s)", collection: Activity.active.alphabetical, as: :check_boxes %>
+      <%= f.input :village_ids, label: "Village(s)", collection: Village.active.alphabetical, as: :check_boxes %>
+    <%= f.input :start_date, as: :date,start_year: Date.today.year - 10, end_year: Date.today.year - 10, order: [:month, :day, :year], include_blank: true %>
+    <%= f.input :active %>
+    <div class="form-actions">
+      <%= f.submit nil, class: 'button' %>
+      <%= link_to 'Cancel', village_activities_path, :class => 'button secondary' %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :village_id %><br>
-    <%= f.number_field :village_id %>
-  </div>
-  <div class="field">
-    <%= f.label :activity_id %><br>
-    <%= f.number_field :activity_id %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    </fieldset>
 <% end %>

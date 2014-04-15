@@ -11,7 +11,6 @@
       <th>Taluka</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -25,13 +24,17 @@
         <td><%= village.district %></td>
         <td><%= village.taluka %></td>
         <td><%= link_to 'Show', village %></td>
-        <td><%= link_to 'Edit', edit_village_path(village) %></td>
-        <td><%= link_to 'Destroy', village, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_village_path(village), class: "button tiny radius" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<br />
 
-<%= link_to 'New Village', new_village_path %>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @instructors, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<br />
