@@ -16,6 +16,12 @@ class Village < ActiveRecord::Base
 	#instance methods
  	before_save :find_coordinates
 
+  def create_map_link(zoom=12,width=800,height=800)
+    markers = "";
+    markers += "&markers=color:red%7Ccolor:red%7Clabel:#{i}%7C#{self.latitude},#{self.longitude}"
+    map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
+  end
+
  	private
   	def find_coordinates
   		return nil if (self.name.nil? || self.taluka.nil? || self.district.nil? || self.state.nil?)
