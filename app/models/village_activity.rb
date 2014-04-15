@@ -20,12 +20,12 @@ class VillageActivity < ActiveRecord::Base
   # scope :alphabetical_by_activity, -> { joins(:activity).order('name') }
 
   	
-  	def activity_is_not_already_assigned_to_village
-    unless VillageActivity.where(activity_id: self.activity_id, village_id: self.village_id).to_a.empty?
-      errors.add(:activity, "has already been assigned to this village")
-      end
+	def activity_is_not_already_assigned_to_village
+  unless VillageActivity.where(activity_id: self.activity_id, village_id: self.village_id).to_a.empty?
+    errors.add(:activity, "has already been assigned to this village")
     end
-      
+  end
+    
   def village_is_active_in_system
     all_village_ids = Village.active.to_a.map(&:id)
     unless all_village_ids.include?(self.village_id)

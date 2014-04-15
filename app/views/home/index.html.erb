@@ -1,5 +1,5 @@
 <h1>The Bajaj Map</h1>
 
-<% for villages in @villages %>
-	<%= image_tag @village.create_map_link %>
+<% for village in @villages %>
+	<%= image_tag village.create_map_link %>
 <%end%>

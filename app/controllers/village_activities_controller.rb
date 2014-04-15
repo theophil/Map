@@ -26,7 +26,7 @@ class VillageActivitiesController < ApplicationController
   def create
     @village_activity = VillageActivity.new(village_activity_params)
     if @village_activity.save
-      redirect_to village_activity_path(@village_activity), notice: "#{@village_activity.name} was added to the system."
+      redirect_to village_activity_path(@village_activity), notice: "The village-activity for village #{@village_activity.village_name} and activity #{@village_activity.activity_name} was added to the system."
     else
       render action: 'new'
     end
@@ -36,7 +36,7 @@ class VillageActivitiesController < ApplicationController
   # PATCH/PUT /village_activities/1.json
   def update
     if @village_activity.update(village_activity_params)
-      redirect_to village_activity_path(@village_activity), notice: "#{@village_activity.name} was revised in the system."
+      redirect_to village_activity_path(@village_activity), notice: "The village-activity for village #{@village_activity.village_name} and activity #{@village_activity.activity_name} was added to the system."
     else
       render action: 'edit'
     end
