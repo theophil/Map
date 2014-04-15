@@ -5,15 +5,20 @@ class VillageActivity < ActiveRecord::Base
 
 	#validations
 	validates :activity_id, presence: true, numericality: { greater_than: 0, only_integer: true }
-  	validates :village_id, presence: true, numericality: { greater_than: 0, only_integer: true }
-  	validates_presence_of :start_date
+	validates :village_id, presence: true, numericality: { greater_than: 0, only_integer: true }
+	validates_presence_of :start_date
 
-  	validates_date :start_date, :on_or_before => lambda { Date.today }, :on_or_before_message => "should have started today or in the past", :on => :create
-  	validates_date :end_date, :on_or_after => :start_date, allow_blank: true
+	validates_date :start_date, :on_or_before => lambda { Date.today }, :on_or_before_message => "should have started today or in the past", :on => :create
+	validates_date :end_date, :on_or_after => :start_date, allow_blank: true
 
-  	validate :activity_is_not_already_assigned_to_village
-  	validate :village_is_active_in_system
-  	validate :activity_is_active_in_system
+	validate :activity_is_not_already_assigned_to_village
+	validate :village_is_active_in_system
+	validate :activity_is_active_in_system
+
+  #scopes
+  scope :alphabetical_by_village, -> { joins(:village).order('name') }
+  scope :alphabetical_by_activity, -> { joins(:activity).order('name') }
+
   	
   	def activity_is_not_already_assigned_to_village
     unless VillageActivity.where(activity_id: self.activity_id, village_id: self.village_id).to_a.empty?
@@ -21,7 +26,7 @@ class VillageActivity < ActiveRecord::Base
       end
     end
       
-      def village_is_active_in_system
+  def village_is_active_in_system
     all_village_ids = Village.active.to_a.map(&:id)
     unless all_village_ids.include?(self.village_id)
       errors.add(:village, "is not an active village in the system")
@@ -34,5 +39,23 @@ class VillageActivity < ActiveRecord::Base
       errors.add(:activity, "is not an active activity in the system")
     end
   end
+
+  def village_name
+    return self.village.name
+  end
+
+  def activity_name
+    return self.activity.name
+  end
+
+  # def create_map_link(zoom=12,width=800,height=800)
+  #   markers = ""; i = 1
+  #     self.villages.alphabetical.to_a.each do |attr|
+  #       markers += "&markers=color:red%7Ccolor:red%7Clabel:#{i}%7C#{attr.latitude},#{attr.longitude}"
+  #       i += 1
+  #     end
+  #   map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
+  # end
+
   
 end

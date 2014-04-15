@@ -11,4 +11,6 @@ class Activity < ActiveRecord::Base
 	scope :active, -> { where(active: true) }
   	scope :inactive, -> { where(active: false) }
   	scope :alphabetical, -> { order('name') }
+
+  	
 end 

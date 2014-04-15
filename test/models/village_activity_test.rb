@@ -63,5 +63,21 @@ class VillageActivityTest < ActiveSupport::TestCase
       deny bad_assignment.valid?
     end
 
+    should "show village alphabetical scope works" do
+      assert_equal ["Juvadi","Ridhora"], @va1.alphabetical_by_village.all.map { |v| v.name }
+    end
+
+    should "show activity alphabetical scope works" do
+      assert_equal ["Self Help Group", "Water Development"], @va1.alphabetical_by_activity.all.map(&:name)
+    end
+
+    should "show village_name method works" do
+      assert_equal "Juvadi", @va1.village_name
+    end
+
+    should "show activity_name works" do
+      assert_equal "Agricultural Development", @va1.activity_name
+    end
+
   end # Contexts
 end # Class
