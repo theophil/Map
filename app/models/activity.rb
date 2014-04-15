@@ -1,9 +1,9 @@
 class Activity < ActiveRecord::Base
-	# #relationships
+	# Relationships
 	has_many :village_activities
 	has_many :villages, through: :village_activities
 
-	# #validations
+	# Validations
 	validates_presence_of :name
 	validates :name, uniqueness: { case_sensitive: false }
 

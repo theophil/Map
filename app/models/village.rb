@@ -1,5 +1,5 @@
 class Village < ActiveRecord::Base
-	#relationships
+	# Relationships
 	has_many :village_activities
 	has_many :activities, through: :village_activities
 
