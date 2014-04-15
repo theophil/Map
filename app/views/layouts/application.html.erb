@@ -11,9 +11,77 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+ <body class="body">
+   <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "Bajaj Map Home", home_path %></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <!--Activities-->
+          <li class="has-dropdown">
+            <a href="#">Activities</a>
+            <ul class="dropdown">
+              <li><%= link_to "Add a Activity", new_activity_path %></li>
+              <li><%= link_to "List Activities", activities_path %></li>
+            </ul>
+          </li>
+          <!--Villages-->
+          <li class="has-dropdown">
+            <a href="#">Villages</a>
+            <ul class="dropdown">
+              <li><%= link_to "Add a Village", new_village_path %></li>
+              <li><%= link_to "List Villages", villages_path %></li>
+            </ul>
+          </li>
+          <!--Village Activities-->
+          <li class="has-dropdown">
+            <a href="#">Village Activities</a>
+            <ul class="dropdown">
+              <li><%= link_to "Add an Village Activity", new_village_activity_path %></li>
+              <li><%= link_to "List Village Activities", village_activities_path %></li>
+            </ul>
+          </li>
+          <!--Other pages stemming home-->
+          <li class="has-dropdown">
+            <a href="#">Other Pages</a>
+            <ul class="dropdown">
+              <li><%= link_to "About", about_path %></li>
+              <li><%= link_to "Contact", contact_path %></li>
+              <li><%= link_to "Privacy", privacy_path %></li>
+            </ul>
+          </li>
+        </ul><!--nav list end-->
+      </section>
+    </nav>
+  </div>
+  <% flash.each do |name, msg| %>
+    <div class="alert-box <%= :notice ? "success" : "warning" %> radius">
+      <a href="#" class="close">&times;</a>
+      <%= msg %>
+    </div>
+  <% end %>
+  <!-- above added in lab as #3-->
+    <div class="row", id="main_content">
+      <div class="small-12 columns">
+        <!-- MAIN CONTENT GOES HERE -->
+        <div class="panel clearfix">
+        <%= yield %>
+        <%= javascript_include_tag "application" %>
+      </div>
+      </div>
+    </div>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <footer id="footer">
+      <div class="row">
+        <div class="small-6 large-centered columns">
+          <%= render partial: 'partials/footer' %>
+        </div>
+      </div> 
+    </footer>     
   </body>
+
 </html>

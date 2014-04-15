@@ -31,4 +31,5 @@
 </p>
 
 <%= link_to 'Edit', edit_village_activity_path(@village_activity) %> |
-<%= link_to 'Back', village_activities_path %>
+<%= link_to 'Back', village_activities_path %> |
+<%= link_to 'Destroy', @village_activity, data: { confirm: 'Are you sure?' }, method: :delete, class: "button tiny round alert" %>
