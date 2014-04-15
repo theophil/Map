@@ -4,7 +4,7 @@ class VillageActivitiesController < ApplicationController
   # GET /village_activities
   # GET /village_activities.json
   def index
-    @village_activities = VillageActivity.all
+    @village_activities = VillageActivity.active.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /village_activities/1
@@ -25,29 +25,20 @@ class VillageActivitiesController < ApplicationController
   # POST /village_activities.json
   def create
     @village_activity = VillageActivity.new(village_activity_params)
-
-    respond_to do |format|
-      if @village_activity.save
-        format.html { redirect_to @village_activity, notice: 'Village activity was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @village_activity }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @village_activity.errors, status: :unprocessable_entity }
-      end
+    if @village_activity.save
+      redirect_to village_activity_path(@village_activity), notice: "#{@village_activity.proper_name} was added to the system."
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /village_activities/1
   # PATCH/PUT /village_activities/1.json
   def update
-    respond_to do |format|
-      if @village_activity.update(village_activity_params)
-        format.html { redirect_to @village_activity, notice: 'Village activity was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @village_activity.errors, status: :unprocessable_entity }
-      end
+    if @village_activity.update(village_activity_params)
+      redirect_to village_activity_path(@village_activity), notice: "#{@village_activity.proper_name} was revised in the system."
+    else
+      render action: 'edit'
     end
   end
 
@@ -55,10 +46,8 @@ class VillageActivitiesController < ApplicationController
   # DELETE /village_activities/1.json
   def destroy
     @village_activity.destroy
-    respond_to do |format|
-      format.html { redirect_to village_activities_url }
-      format.json { head :no_content }
-    end
+    #return to overall curriculums list (index)
+    redirect_to village_activities_url
   end
 
   private
