@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @activities = Activity.alphabetical.active.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /activities/1
@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1.json
   def destroy
     @activity.destroy
-    redirect_to activies_url
+    redirect_to activities_url
   end
 
   private
