@@ -4,7 +4,7 @@ class VillagesController < ApplicationController
   # GET /villages
   # GET /villages.json
   def index
-    @villages = Village.all
+    @villages = Village.active.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /villages/1
@@ -25,29 +25,21 @@ class VillagesController < ApplicationController
   # POST /villages.json
   def create
     @village = Village.new(village_params)
-
-    respond_to do |format|
-      if @village.save
-        format.html { redirect_to @village, notice: 'Village was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @village }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @village.errors, status: :unprocessable_entity }
-      end
+    if @village.save
+      redirect_to village_path(@village), notice: "#{@village.proper_name} was added to the system."
+    else
+      render action: 'new'
     end
   end
+
 
   # PATCH/PUT /villages/1
   # PATCH/PUT /villages/1.json
   def update
-    respond_to do |format|
-      if @village.update(village_params)
-        format.html { redirect_to @village, notice: 'Village was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @village.errors, status: :unprocessable_entity }
-      end
+    if @village.update(village_params)
+      redirect_to village_path(@village), notice: "#{@village.proper_name} was revised in the system."
+    else
+      render action: 'edit'
     end
   end
 
@@ -55,10 +47,8 @@ class VillagesController < ApplicationController
   # DELETE /villages/1.json
   def destroy
     @village.destroy
-    respond_to do |format|
-      format.html { redirect_to villages_url }
-      format.json { head :no_content }
-    end
+    #return to overall curriculums list (index)
+    redirect_to villages_url
   end
 
   private

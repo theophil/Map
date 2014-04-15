@@ -16,12 +16,15 @@
         <td><%= activity.name %></td>
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @activities, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
 
-<%= link_to 'New Activity', new_activity_path %>
+<br />
+

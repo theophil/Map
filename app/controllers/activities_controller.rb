@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    @activities = Activity.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /activities/1
@@ -25,40 +25,29 @@ class ActivitiesController < ApplicationController
   # POST /activities.json
   def create
     @activity = Activity.new(activity_params)
-
-    respond_to do |format|
-      if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @activity }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
-      end
+    if @activity.save
+      redirect_to activity_path(@activity), notice: "#{@activity.proper_name} was added to the system."
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /activities/1
   # PATCH/PUT /activities/1.json
   def update
-    respond_to do |format|
-      if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
-      end
+    if @activity.update(activity_params)
+      redirect_to activity_path(@activity), notice: "#{@activity.proper_name} was revised in the system."
+    else
+      render action: 'edit'
     end
   end
+
 
   # DELETE /activities/1
   # DELETE /activities/1.json
   def destroy
     @activity.destroy
-    respond_to do |format|
-      format.html { redirect_to activities_url }
-      format.json { head :no_content }
-    end
+    redirect_to activies_url
   end
 
   private
@@ -69,6 +58,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name)
+      params.require(:activity).permit(:name, :active)
     end
 end
