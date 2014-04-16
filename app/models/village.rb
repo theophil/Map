@@ -13,17 +13,13 @@ class Village < ActiveRecord::Base
 	scope :inactive, -> { where(active: false) }
 	scope :alphabetical, -> { order('name') }
 
- 	
-
-  @@num_villages = 0
-
-  # def initialize
-  #   @@num_villages+=1   
-  # end
+  def num_villages
+    self.id
+  end
 
 
   def create_map_link(zoom=12,width=800,height=800)
-    markers = ""; marker_number = @@num_villages
+    markers = ""; marker_number = num_villages
     markers += "&markers=color:red%7Ccolor:red%7Clabel:#{marker_number}%7C#{self.latitude},#{self.longitude}"
     map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
   end

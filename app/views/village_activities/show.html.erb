@@ -2,17 +2,17 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @village_activity.name %>
+  <%= "Village: #{@village_activity.village_name}, Activity: #{@village_activity.activity_name}" %>
 </p>
 
 <p>
   <strong>Village:</strong>
-  <%= @village_activity.village_id %>
+  <%= @village_activity.village.name %>
 </p>
 
 <p>
   <strong>Activity:</strong>
-  <%= @village_activity.activity_id %>
+  <%= @village_activity.activity.name %>
 </p>
 
 <p>
