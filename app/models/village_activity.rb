@@ -32,15 +32,15 @@ class VillageActivity < ActiveRecord::Base
   #   map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
   # end
 
-  def create_map_marker
-    markers = ""; marker_number = num_village_activities
-    village = self.village
-    markers += "&markers=color:red%7Ccolor:red%7Clabel:#{marker_number}%7C#{village.latitude},#{village.longitude}"
-  end
+  # def create_map_marker
+  #   markers = ""; marker_number = num_village_activities
+  #   village = self.village
+  #   markers += "&markers=color:red%7Ccolor:red%7Clabel:#{marker_number}%7C#{village.latitude},#{village.longitude}"
+  # end
 
-  def create_map_link(zoom=12,width=800,height=800)
-    map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
-  end
+  # def create_map_link(zoom=12,width=800,height=800)
+  #   map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
+  # end
 
 	def activity_is_not_already_assigned_to_village
   unless VillageActivity.where(activity_id: self.activity_id, village_id: self.village_id).to_a.empty?
