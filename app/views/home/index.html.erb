@@ -3,3 +3,6 @@
 <% for village in @villages %>
 	<%= image_tag village.create_map_link %>
 <%end%>
+
+<br>
+<%= render partial: 'partials/activity_table' %>
