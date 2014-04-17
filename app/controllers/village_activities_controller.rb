@@ -4,7 +4,7 @@ class VillageActivitiesController < ApplicationController
   # GET /village_activities
   # GET /village_activities.json
   def index
-    @village_activities = VillageActivity.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @village_activities = VillageActivity.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /village_activities/1
@@ -26,7 +26,7 @@ class VillageActivitiesController < ApplicationController
   def create
     @village_activity = VillageActivity.new(village_activity_params)
     if @village_activity.save
-      redirect_to village_activity_path(@village_activity), notice: "#{@village_activity.proper_name} was added to the system."
+      redirect_to village_activity_path(@village_activity), notice: "The village-activity for village #{@village_activity.village_name} and activity #{@village_activity.activity_name} was added to the system."
     else
       render action: 'new'
     end
@@ -36,7 +36,7 @@ class VillageActivitiesController < ApplicationController
   # PATCH/PUT /village_activities/1.json
   def update
     if @village_activity.update(village_activity_params)
-      redirect_to village_activity_path(@village_activity), notice: "#{@village_activity.proper_name} was revised in the system."
+      redirect_to village_activity_path(@village_activity), notice: "The village-activity for village #{@village_activity.village_name} and activity #{@village_activity.activity_name} was added to the system."
     else
       render action: 'edit'
     end
@@ -58,6 +58,6 @@ class VillageActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def village_activity_params
-      params.require(:village_activity).permit(:name, :village_id, :activity_id, :start_date, :end_date, :active)
+      params.require(:village_activity).permit(:name, :village_id, :activity_id, :start_date, :end_date)
     end
 end

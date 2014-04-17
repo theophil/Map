@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @activities = Activity.alphabetical.active.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /activities/1
@@ -26,7 +26,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     if @activity.save
-      redirect_to activity_path(@activity), notice: "#{@activity.proper_name} was added to the system."
+      redirect_to activity_path(@activity), notice: "#{@activity.name} was added to the system."
     else
       render action: 'new'
     end
@@ -36,7 +36,7 @@ class ActivitiesController < ApplicationController
   # PATCH/PUT /activities/1.json
   def update
     if @activity.update(activity_params)
-      redirect_to activity_path(@activity), notice: "#{@activity.proper_name} was revised in the system."
+      redirect_to activity_path(@activity), notice: "#{@activity.name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -47,7 +47,7 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1.json
   def destroy
     @activity.destroy
-    redirect_to activies_url
+    redirect_to activities_url
   end
 
   private

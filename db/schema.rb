@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140415013109) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
-    t.boolean  "active", default: true
+    t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140415013109) do
     t.string   "state"
     t.string   "district"
     t.string   "taluka"
-    t.boolean  "active", default: true
+    t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

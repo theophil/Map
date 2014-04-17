@@ -26,7 +26,7 @@ class VillagesController < ApplicationController
   def create
     @village = Village.new(village_params)
     if @village.save
-      redirect_to village_path(@village), notice: "#{@village.proper_name} was added to the system."
+      redirect_to village_path(@village), notice: "#{@village.name} was added to the system."
     else
       render action: 'new'
     end
@@ -37,7 +37,7 @@ class VillagesController < ApplicationController
   # PATCH/PUT /villages/1.json
   def update
     if @village.update(village_params)
-      redirect_to village_path(@village), notice: "#{@village.proper_name} was revised in the system."
+      redirect_to village_path(@village), notice: "#{@village.name} was revised in the system."
     else
       render action: 'edit'
     end
@@ -59,6 +59,6 @@ class VillagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def village_params
-      params.require(:village).permit(:name, :state, :district, :taluka)
+      params.require(:village).permit(:name, :state, :district, :taluka, :active)
     end
 end

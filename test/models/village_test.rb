@@ -41,15 +41,6 @@ class VillageTest < ActiveSupport::TestCase
     should "show that village's alphabetical scope works correctly" do
       assert_equal ["Juvadi", "Ridhora"], Village.alphabetical.all.map { |a| a.name }
     end
-    # should "shows that SAVED village can (and should) have decimal coordinates" do
-    #   # village one is in factories
-    #   @juvadi.update_attribute(:latitude, 23.4)
-    #   @juvadi.update_attribute(:longitude, 23.5)
-    #   @juvadi.save #got rid of the bang
-    #   @juvadi.reload # reload again from the database
-    #   assert_equal 23.4, @juvadi.latitude
-    #   assert @juvadi.valid?
-    # end
 
   end
 
