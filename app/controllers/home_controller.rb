@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
   	@villages = Village.active.alphabetical.paginate(:page => params[:page]).per_page(10)
   	@activities = Activity.alphabetical.active.paginate(:page => params[:page]).per_page(10)
+    @village_activities = VillageActivity.all.paginate(:page => params[:page]).per_page(10)
   end
 
   def about

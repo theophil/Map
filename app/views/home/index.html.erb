@@ -1,8 +1,10 @@
 <h1>The Bajaj Map</h1>
 
-<% for village in @villages %>
-	<%= image_tag village.create_map_link %>
+<% for village_activity in @village_activities %>
+	<%= image_tag village_activity.create_map_marker %>
 <%end%>
+
+<%= image_tag @village_activity.create_map_link %>
 
 <br>
 <%= render partial: 'partials/activity_table' %>
