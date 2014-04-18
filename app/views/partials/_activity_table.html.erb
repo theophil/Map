@@ -1,0 +1,39 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Participating Villages</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        
+        <td><%= activity.name %></td>
+        <% for village in activity.villages %>
+        <td><%= village.name+", " %></td>
+        <% end -%>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Village</th>
+      <th>Activites</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @villages.each do |village| %>
+      <tr>
+        
+        <td><%= "(#{village.id}) #{village.name}" %></td>
+        <% for activity in village.activities %>
+        <td><%= activity.name+", " %></td>
+        <% end -%>
+    <% end %>
+  </tbody>
+</table>

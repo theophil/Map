@@ -19,7 +19,29 @@ class VillageActivity < ActiveRecord::Base
   # scope :alphabetical_by_village, -> { joins(:village).order('name') }
   # scope :alphabetical_by_activity, -> { joins(:activity).order('name') }
 
-  	
+  def num_village_activities
+    self.id
+  end
+
+  # def create_map_link(zoom=12,width=800,height=800)
+  #   markers = ""; marker_number = num_village_activities
+  #   self.attractions.alphabetical.to_a.each do |attr|
+  #     markers += "&markers=color:red%7Ccolor:red%7Clabel:#{marker_number}%7C#{attr.latitude},#{attr.longitude}"
+  #     marker_number += 1
+  #   end
+  #   map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
+  # end
+
+  # def create_map_marker
+  #   markers = ""; marker_number = num_village_activities
+  #   village = self.village
+  #   markers += "&markers=color:red%7Ccolor:red%7Clabel:#{marker_number}%7C#{village.latitude},#{village.longitude}"
+  # end
+
+  # def create_map_link(zoom=12,width=800,height=800)
+  #   map = "http://maps.google.com/maps/api/staticmap?center= #{latitude},#{longitude}&zoom=#{zoom}&size=#{width}x#{height}&maptype=roadmap#{markers}&sensor=false"
+  # end
+
 	def activity_is_not_already_assigned_to_village
   unless VillageActivity.where(activity_id: self.activity_id, village_id: self.village_id).to_a.empty?
     errors.add(:activity, "has already been assigned to this village")
