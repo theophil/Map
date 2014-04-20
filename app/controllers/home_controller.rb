@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  include MapMaker
+  include MapMaker # so we can create_map_link
 
   def index
   	@villages = Village.active.alphabetical.paginate(:page => params[:page]).per_page(10)
