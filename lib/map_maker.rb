@@ -20,9 +20,4 @@ module MapMaker
   		markers
 	end
 
-
-
-
-
-
 end
