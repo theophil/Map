@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Activity</th>
-      <th>Participating Villages</th>
+      <th>Villages</th>
     </tr>
   </thead>
 
@@ -11,9 +11,11 @@
       <tr>
         <% if !activity.village_activities.empty? %>
           <td><%= activity.name %></td>
+          <td>
             <% for va in activity.village_activities %>
-              <td><%= va.village.name+" | " %></td>
+              <%= va.village.name+" | " %>
             <% end -%>
+            </td>
         <% end -%>
     <% end %>
   </tbody>
@@ -32,9 +34,11 @@
       <tr>
         <% if !village.village_activities.empty? %>
           <td><%= village.name %></td>
+          <td>
             <% for va in village.village_activities %>
-              <td><%= va.activity.name+" | " %></td>
+              <%= va.activity.name+" | " %>
             <% end -%>
+            </td>
         <% end -%>
     <% end %>
 </table>
