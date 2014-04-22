@@ -13,7 +13,11 @@
           <td><%= activity.name %></td>
           <td>
             <% for va in activity.village_activities %>
+<<<<<<< HEAD
               <%= va.village.name+" |" %>
+=======
+              <td><%= va.village.name+" | " %></td>
+>>>>>>> gbonker-master
             <% end -%>
             </td>
         <% end -%>
@@ -36,7 +40,7 @@
           <td><%= village.name %></td>
           <td>
             <% for va in village.village_activities %>
-              <%= va.activity.name+" |" %>
+              <td><%= va.activity.name+" | " %></td>
             <% end -%>
             </td>
         <% end -%>

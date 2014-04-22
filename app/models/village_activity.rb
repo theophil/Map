@@ -18,6 +18,7 @@ class VillageActivity < ActiveRecord::Base
   #scopes
   # scope :alphabetical_by_village, -> { joins(:village).order('name') }
   # scope :alphabetical_by_activity, -> { joins(:activity).order('name') }
+  scope :chronological, -> { order('start_date','end_date') }
 
   def num_village_activities
     self.id
