@@ -1,9 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h2>Village-Activity Details</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= "Village: #{@village_activity.village_name}, Activity: #{@village_activity.activity_name}" %>
-</p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Village:</strong>
@@ -17,16 +14,20 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @village_activity.start_date %>
+  <% if @village_activity.start_date != nil %>
+    <%= @village_activity.start_date.strftime('%m/%d/%y') %>
+  <% end %>
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @village_activity.end_date %>
+  <% if @village_activity.end_date != nil %>
+    <%= @village_activity.end_date.strftime('%m/%d/%y') %>
+  <% end %>
 </p>
 
 <%# image_tag @village_activity.create_map_link %>
 
 <%= link_to 'Edit', edit_village_activity_path(@village_activity) %> |
-<%= link_to 'Back', village_activities_path %> |
+<%= link_to 'Back to All Village-Activities', village_activities_path %><br><br>
 <%= link_to 'Destroy', @village_activity, data: { confirm: 'Are you sure?' }, method: :delete, class: "button tiny round alert" %>

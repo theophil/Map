@@ -1,13 +1,12 @@
-<h1>Listing villages</h1>
+<h2>Listing Villages</h2>
+
+<%= link_to "Add a New Village", new_village_path %>
 
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>State</th>
-      <th>District</th>
       <th>Taluka</th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -15,11 +14,8 @@
   <tbody>
     <% @villages.each do |village| %>
       <tr>
-        <td><%= village.name %></td>
-        <td><%= village.state %></td>
-        <td><%= village.district %></td>
+        <td><%= link_to village.name, village %></td>
         <td><%= village.taluka %></td>
-        <td><%= link_to 'Show', village %></td>
         <td><%= link_to 'Edit', edit_village_path(village), class: "button tiny radius" %></td>
       </tr>
     <% end %>
