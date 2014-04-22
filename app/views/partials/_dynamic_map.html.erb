@@ -1,52 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dynamic Maps Engine Layer</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&sensor=false"></script>
-    <script>
-function initialize() {
-
-  var fillArray = ['red', 'blue', 'yellow', 'green'];
-
-  var mapOptions = {
-    zoom: 14,
-    center: new google.maps.LatLng(59.322506, 18.010025)
-  };
-
-  var map = new google.maps.Map(document.getElementById('map-canvas'),
-    mapOptions);
-
-  var layer = new google.maps.visualization.DynamicMapsEngineLayer({
-    layerId: '06673056454046135537-08896501997766553811',
-    map: map,
-    suppressInfoWindows: true,
-    clickable: true
-  });
-
-  google.maps.event.addListener(layer, 'mouseover', function(event) {
-    var style = layer.getFeatureStyle(event.featureId);
-    style.fillColor = fillArray[event.featureId - 1];
-    style.fillOpacity = '0.8';
-  });
-
-  google.maps.event.addListener(layer, 'mouseout', function(event) {
-    var style = layer.getFeatureStyle(event.featureId).resetAll();
-  });
-}
-google.maps.event.addDomListener(window, 'load', initialize);
-
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRRQgBv9OAQ5ohEYrFwd1PX97V-VZv00&sensor=false">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
-  <body>
-    <div id="map-canvas"></div>
+  <!--potentially need to add parens after initialize or nix onload altogether-->
+  <body onload="initialize" style="width:100%; height:100%">
+    <div id="map-canvas" style="width:100%; height:100%"></div>
   </body>
 </html>
