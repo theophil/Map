@@ -6,7 +6,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRRQgBv9OAQ5ohEYrFwd1PX97V-VZv00&sensor=false">
     </script>
     <script type="text/javascript">
-    //var vill_acts = <% @village_activities %>;
     var map;
       function initialize() {
         var mapOptions = {
@@ -24,17 +23,24 @@
           position: new google.maps.LatLng(20.745319, 78.60219459999999),
           title: 'Wardha',
           map: map
-          })
+        })
       }
 
       // function addMarker() {
-      //   for (var va = 0; va < vill_acts.length; va++) {
+      //   <% vill_acts = @village_activities %>
+      //   <% count = 0 %>
+      //   var va_array_js = new Array();
+      //   for (var va = 0; va < <%= vill_acts.size %>; va++) {
+
       //     var marker = new google.maps.Marker({
-      //       position: new google.maps.LatLng(vill_acts[va].village.latitude, vill_acts[va].village.longitude),
-      //       title: vill_acts[va].village.name,
-      //       map: map
+      //       position: new google.maps.LatLng(<%= vill_acts[count].village.latitude %>, <%= vill_acts[count].village.longitude %>),
+      //       title: '<%= vill_acts[count].village.name %>',
+      //       // map: map was here
+      //       <% count+=1 %>
+      //       va_array_js[va] = marker
       //     })
       //   }
+      //   map: map
       // }
 
       google.maps.event.addDomListener(window, 'load', initialize);
