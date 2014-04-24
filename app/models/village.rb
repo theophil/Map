@@ -4,7 +4,7 @@ class Village < ActiveRecord::Base
 	has_many :activities, through: :village_activities
 
 	#validations
-	validates_presence_of :district, :taluka, :state
+	validates_presence_of :state
 	validates :name, presence: true, uniqueness: { case_sensitive: false }
 
 

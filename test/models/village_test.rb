@@ -8,8 +8,6 @@ class VillageTest < ActiveSupport::TestCase
   #test validations
   should validate_presence_of(:name)
   should validate_presence_of(:state)
-  should validate_presence_of(:district)
-  should validate_presence_of(:taluka)
   should validate_uniqueness_of(:name).case_insensitive
 
   #set up context
