@@ -28,8 +28,8 @@ class Village < ActiveRecord::Base
  	
   private
 	def find_coordinates
-		return nil if (self.name.nil? || self.taluka.nil? || self.district.nil? || self.state.nil?)
-		coords = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)
+		return nil if (self.name.nil? || self.state.nil?)
+		coords = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state+", India")
 		#first index of coordinates
 		self.latitude = coords[0]
 		#second index of coordinates
