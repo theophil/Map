@@ -6,7 +6,8 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRRQgBv9OAQ5ohEYrFwd1PX97V-VZv00&sensor=false">
     </script>
     <script type="text/javascript">
-    //var vill_acts = <% @village_activities %>;
+    // var vill_acts = <% @village_activities %>;
+    var vill_acts_length = <% @village_activities.size %>;
     var map;
       function initialize() {
         var mapOptions = {
@@ -16,22 +17,26 @@
         };
         map = new google.maps.Map(document.getElementById("map_canvas"),
             mapOptions);
-        addMarker();
+        for (var = 0, va < vill_acts_length; va++){
+          <% count = 0 %>
+          addMarker(<% @village_activities[count] %>);
+          <% count += 1 %>
+        }
       }
 
-      function addMarker() {
+      function addMarker(vill_act) {
         var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(20.745319, 78.60219459999999),
-          title: 'Wardha',
+          position: new google.maps.LatLng(vill_act.village.latitude, vill_act.village.longitude),
+          title: vill_act.village.name,
           map: map
           })
       }
 
       // function addMarker() {
-      //   for (var va = 0; va < vill_acts.length; va++) {
+      //   for (var va = 0; va < village_activities.length; va++) {
       //     var marker = new google.maps.Marker({
-      //       position: new google.maps.LatLng(vill_acts[va].village.latitude, vill_acts[va].village.longitude),
-      //       title: vill_acts[va].village.name,
+      //       position: new google.maps.LatLng(village_activities[va].village.latitude, village_activities[va].village.longitude),
+      //       title: village_activities[va].village.name,
       //       map: map
       //     })
       //   }
