@@ -25,22 +25,13 @@
       }
 
       function addMarker(vill_act) {
+        })
         var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(vill_act.village.latitude, vill_act.village.longitude),
-          title: vill_act.village.name,
+          position: new google.maps.LatLng(<%= vill_act.village.latitude %>, <%= vill_act.village.longitude %>),
+          title: '<%= vill_act.village.name %>',
           map: map
           })
       }
-
-      // function addMarker() {
-      //   for (var va = 0; va < village_activities.length; va++) {
-      //     var marker = new google.maps.Marker({
-      //       position: new google.maps.LatLng(village_activities[va].village.latitude, village_activities[va].village.longitude),
-      //       title: village_activities[va].village.name,
-      //       map: map
-      //     })
-      //   }
-      // }
 
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
