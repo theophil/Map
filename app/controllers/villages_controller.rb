@@ -10,6 +10,7 @@ class VillagesController < ApplicationController
   # GET /villages/1
   # GET /villages/1.json
   def show
+    @active_activities = @village.activities.alphabetical.map { |a| a.name }
   end
 
   # GET /villages/new

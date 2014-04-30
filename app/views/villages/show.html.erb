@@ -8,6 +8,11 @@
 </p>
 
 <p>
+  <strong>Activities:</strong>
+  <%= @active_activities %>
+</p>
+
+<!-- <p>
   <strong>Longitude:</strong>
   <%= @village.longitude %>
 </p>
@@ -15,7 +20,7 @@
 <p>
   <strong>Latitude:</strong>
   <%= @village.latitude %>
-</p>
+</p> -->
 
 <p>
   <strong>State:</strong>
@@ -34,7 +39,7 @@
 
 <p>
   <strong>Active:</strong>
-  <%= @village.active %>
+  <%= @village.active ? "Yes" : "No" %>
 </p>
 
 
