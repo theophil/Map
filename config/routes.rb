@@ -8,10 +8,11 @@ Map::Application.routes.draw do
     # Additional routes to create for this project
   
   # Set the root url
-  root 'home#index'  
+  root 'home#index', as: :home  
 
+  # get 'home/village_activities.json'
   # Semi-static page routes
-  get 'home/index', to: 'home#index', as: :home
+  #get 'home/index', to: 'home#index', as: :home
   get 'home/about', to: 'home#about', as: :about
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/privacy', to: 'home#privacy', as: :privacy
