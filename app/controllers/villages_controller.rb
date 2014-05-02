@@ -60,6 +60,6 @@ class VillagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def village_params
-      params.require(:village).permit(:name, :state, :district, :taluka, :active)
+      params.require(:village).permit(:name, :state, :district, :taluka, :active, :user_id)
     end
 end

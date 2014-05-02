@@ -2,6 +2,7 @@ class Village < ActiveRecord::Base
 	# Relationships
 	has_many :village_activities
 	has_many :activities, through: :village_activities
+    belongs_to :user
 
 	#validations
 	validates_presence_of :district, :taluka, :state

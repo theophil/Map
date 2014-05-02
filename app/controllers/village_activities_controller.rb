@@ -58,6 +58,6 @@ class VillageActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def village_activity_params
-      params.require(:village_activity).permit(:name, :village_id, :activity_id, :start_date, :end_date)
+      params.require(:village_activity).permit(:name, :village_id, :activity_id, :user_id, :start_date, :end_date)
     end
 end

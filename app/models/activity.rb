@@ -2,6 +2,7 @@ class Activity < ActiveRecord::Base
 	# Relationships
 	has_many :village_activities
 	has_many :villages, through: :village_activities
+	belongs_to :user
 
 	# Validations
 	validates_presence_of :name

@@ -4,6 +4,7 @@ class VillageActivityTest < ActiveSupport::TestCase
 #test relationships
   should belong_to(:village)
   should belong_to(:activity)
+  should belong_to(:user)
 
 # test validations
   should validate_presence_of(:village_id)
