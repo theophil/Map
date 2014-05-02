@@ -2,6 +2,7 @@
   <fieldset>
     <%= f.input :activity_id, label: "Activity", collection: Activity.active.alphabetical %>
     <%= f.input :village_id, label: "Village", collection: Village.active.alphabetical %>
+    <%= f.input :user_id, label: "User", collection: User.active.alphabetical, prompt: "Select user..." %>
     <%= f.input :start_date, as: :date,start_year: Date.today.year - 10, end_year: Date.today.year, order: [:month, :day, :year], include_blank: true %>
     <%= f.input :end_date, as: :date,start_year: Date.today.year - 10, end_year: Date.today.year + 10, order: [:month, :day, :year], include_blank: true %>
     <div class="form-actions">

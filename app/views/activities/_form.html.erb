@@ -1,6 +1,7 @@
 <%= simple_form_for(@activity, html: { class: 'form-horizontal' }) do |f| %>
   <fieldset>
       <%= f.input :name %>
+      <%= f.input :user_id, clabel: "User", ollection: User.active.alphabetical, prompt: "Select user..." %>
       <%= f.input :active %>
     <div class="form-actions">
       <%= f.submit nil, class: 'button' %>
