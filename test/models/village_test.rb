@@ -16,12 +16,14 @@ class VillageTest < ActiveSupport::TestCase
   #set up context
   include Contexts
   context "Creating a village context" do
-    setup do 
+    setup do
+      create_users
       create_villages
     end
     
     teardown do
       destroy_villages
+      destroy_users
     end
 
     should "show that def find_coordinates works" do

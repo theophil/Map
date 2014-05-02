@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # a custom module to handle some issues with dates
-  include DateFormatter
+  # include DateFormatter
 
   # just show a flash message instead of full CanCan exception
   rescue_from CanCan::AccessDenied do |exception|

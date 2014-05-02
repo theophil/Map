@@ -9,6 +9,7 @@ class UserTest < ActiveSupport::TestCase
 
   should validate_presence_of(:username)
 
+  include Contexts
   context "Within context" do
     # context
     setup do
@@ -28,8 +29,8 @@ class UserTest < ActiveSupport::TestCase
     end
     
     should "have working class method for authenication" do 
-      assert User.authenticate("fred@example.com", "secret")
-      deny User.authenticate("fred@example.com", "password")
+      assert User.authenticate("eddieG", "secret")
+      deny User.authenticate("lilned", "password")
     end
     
     should "have a scope to alphabetize users" do
@@ -60,6 +61,5 @@ class UserTest < ActiveSupport::TestCase
       bad_user = FactoryGirl.build(:user, first_name: "Sed", password: "no")
       deny bad_user.valid?
     end
-
-end #context
+  end #context
 end #class
