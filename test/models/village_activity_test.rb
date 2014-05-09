@@ -35,12 +35,10 @@ class VillageActivityTest < ActiveSupport::TestCase
   context "Creating a village_activity context" do
     setup do
       create_users
-      create_village_activities
     end
     
     teardown do
       destroy_users
-      destroy_village_activities
     end
 
     # Unsure how to define model's method thus not using this test
