@@ -1,8 +1,8 @@
 module Contexts
 	def create_villages
-		@juvadi = FactoryGirl.create(:village, user: @ed)
+		@juvadi = FactoryGirl.create(:village)
 		sleep 1
-		@ridhora = FactoryGirl.create(:village, user: @ed, name: "Ridhora", active: false)
+		@ridhora = FactoryGirl.create(:village, name: "Ridhora", active: false)
 		sleep 1
 	end
 
@@ -12,9 +12,9 @@ module Contexts
 	end
 
 	def create_activities
-		@agdev = FactoryGirl.create(:activity, user: @ed)
-		@waterdev = FactoryGirl.create(:activity, user: @ed, name: "Water Development", active: false)
-		@self_help = FactoryGirl.create(:activity, user: @ed, name: "Self Help Group")
+		@agdev = FactoryGirl.create(:activity)
+		@waterdev = FactoryGirl.create(:activity,  name: "Water Development", active: false)
+		@self_help = FactoryGirl.create(:activity,  name: "Self Help Group")
 	end
 
 	def destroy_activities

@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  
-  should have_many(:villages)
-  should have_many(:activities)
-  should have_many(:village_activities)
   should have_secure_password
 
   should validate_presence_of(:first_name)
@@ -38,12 +34,6 @@ class UserTest < ActiveSupport::TestCase
     
     should "have working proper_name method" do 
       assert_equal "Ed Gruberman", @ed.proper_name
-    end
-    
-    should "have working role? method" do 
-      assert @ed.role?(:member)
-      deny @ed.role?(:admin)
-      assert @fred.role?(:admin)
     end
     
     should "have working class method for authenication" do 
