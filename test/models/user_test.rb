@@ -20,6 +20,7 @@ class UserTest < ActiveSupport::TestCase
   should_not allow_value("fred@fred.con").for(:email)
   
   # Using context...
+  include Contexts
   context "Within context" do
     setup do
       create_users
