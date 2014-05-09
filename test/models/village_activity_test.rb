@@ -35,11 +35,15 @@ class VillageActivityTest < ActiveSupport::TestCase
   context "Creating a village_activity context" do
     setup do
       create_users
+      create_activities
+      create_villages
       create_village_activities
     end
     
     teardown do
       destroy_users
+      destroy_activities
+      destroy_villages
       destroy_village_activities
     end
 
@@ -50,7 +54,7 @@ class VillageActivityTest < ActiveSupport::TestCase
     end
 
     should "check to make sure the end date is on or after the start date" do
-      bad_village_activity = FactoryGirl.build(:village_activity, user: @ed,village: @juvadi, activity: @agdev ,start_date: Date.yesterday, end_date: 2.days.ago.to_date)
+      bad_village_activity = FactoryGirl.build(:village_activity, user: @ed,village: @juvadi, activity: @self_help ,start_date: Date.yesterday, end_date: 2.days.ago.to_date)
       deny bad_village_activity.valid?
       okay_village_activity = FactoryGirl.build(:village_activity, user: @ed, village: @juvadi, activity: @self_help, start_date: Date.today, end_date: 3.days.from_now.to_date)
       assert okay_village_activity.valid?

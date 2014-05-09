@@ -45,11 +45,11 @@ class UserTest < ActiveSupport::TestCase
       assert_equal ["Ed", "Fred", "Ned", "Ted"], User.alphabetical.map(&:first_name)
     end
     
-    should "have a scope to select only active domains" do
+    should "have a scope to select only active users" do
       assert_equal ["Ed", "Fred", "Ted"], User.active.alphabetical.map(&:first_name)
     end
     
-    should "have a scope to select only inactive domains" do
+    should "have a scope to select only inactive users" do
       assert_equal ["Ned"], User.inactive.alphabetical.map(&:first_name)
     end 
     
