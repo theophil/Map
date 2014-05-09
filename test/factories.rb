@@ -2,7 +2,6 @@ FactoryGirl.define do
 
 	factory :activity do
 		name "Agricultural Development"
-    association :user
     active true
 	end
 
@@ -21,16 +20,15 @@ FactoryGirl.define do
   	state "Maharashtra"
   	district "Wardha"
   	taluka "Seloo"
-    association :user
     active true
   end
 
   factory :user do
-    username "eddieG"
     first_name "Ed"
     last_name "Gruberman"
     password "secret"
     password_confirmation "secret"
+    email { |u| "#{u.first_name[0]}#{u.last_name}#{(1..99).to_a.sample}@example.com".downcase }
     active true
   end
 

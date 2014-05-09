@@ -11,24 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502043123) do
+ActiveRecord::Schema.define(version: 20140509192052) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
     t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "username"
     t.string   "password_digest"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "village_activities", force: true do |t|
@@ -51,7 +50,6 @@ ActiveRecord::Schema.define(version: 20140502043123) do
     t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
 end

@@ -14,8 +14,12 @@ class User < ActiveRecord::Base
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
 
-  # validations
-  validates :username, presence: true, uniqueness: { case_sensitive: false}
+  # Validations
+  # -----------------------------
+  # make sure required fields are present
+  validates_presence_of :first_name, :last_name, :email  
+  validates_uniqueness_of :email, allow_blank: true
+  validates_format_of :email, :with => /\A[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, :message => "is not a valid format", :allow_blank => true
   validates_presence_of :password, on: :create 
   validates_presence_of :password_confirmation, on: :create 
   validates_confirmation_of :password, message: "does not match"
@@ -31,13 +35,9 @@ class User < ActiveRecord::Base
 
   # for use in authorizing with CanCan
 
-  def self.authenticate(username,password)
-    find_by_username(username).try(:authenticate, password)
-  end
-  
-  def role?(authorized_role)
-    return false if role.nil?
-    role.downcase.to_sym == authorized_role
+  # login by email address
+  def self.authenticate(email, password)
+    find_by_email(email).try(:authenticate, password)
   end
 
 end

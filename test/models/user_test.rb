@@ -7,15 +7,27 @@ class UserTest < ActiveSupport::TestCase
   should have_many(:village_activities)
   should have_secure_password
 
-  should validate_presence_of(:username)
+  should validate_presence_of(:first_name)
+  should validate_presence_of(:last_name)
+  should validate_presence_of(:email)
 
-  include Contexts
+  should allow_value("fred@fred.com").for(:email)
+  should allow_value("fred@andrew.cmu.edu").for(:email)
+  should allow_value("my_fred@fred.org").for(:email)
+  should allow_value("fred123@fred.gov").for(:email)
+  should allow_value("my.fred@fred.net").for(:email)
+  
+  should_not allow_value("fred").for(:email)
+  should_not allow_value("fred@fred,com").for(:email)
+  should_not allow_value("fred@fred.uk").for(:email)
+  should_not allow_value("my fred@fred.com").for(:email)
+  should_not allow_value("fred@fred.con").for(:email)
+  
+  # Using context...
   context "Within context" do
-    # context
     setup do
       create_users
     end
-
     teardown do
       destroy_users
     end
@@ -28,9 +40,15 @@ class UserTest < ActiveSupport::TestCase
       assert_equal "Ed Gruberman", @ed.proper_name
     end
     
+    should "have working role? method" do 
+      assert @ed.role?(:member)
+      deny @ed.role?(:admin)
+      assert @fred.role?(:admin)
+    end
+    
     should "have working class method for authenication" do 
-      assert User.authenticate("eddieG", "secret")
-      deny User.authenticate("lilned", "password")
+      assert User.authenticate("fred@example.com", "secret")
+      deny User.authenticate("fred@example.com", "password")
     end
     
     should "have a scope to alphabetize users" do
@@ -44,6 +62,11 @@ class UserTest < ActiveSupport::TestCase
     should "have a scope to select only inactive domains" do
       assert_equal ["Ned"], User.inactive.alphabetical.map(&:first_name)
     end 
+    
+    should "require users to have unique emails" do
+      bad_user = FactoryGirl.build(:user, first_name: "Sed", email: "fred@example.com")
+      deny bad_user.valid?
+    end
     
     should "require a password for new users" do
       bad_user = FactoryGirl.build(:user, first_name: "Sed", password: nil)

@@ -4,7 +4,6 @@ class VillageTest < ActiveSupport::TestCase
   #test relationships
   should have_many(:village_activities)
   should have_many(:activities).through(:village_activities)
-  should belong_to(:user)
   
   #test validations
   should validate_presence_of(:name)
@@ -17,13 +16,11 @@ class VillageTest < ActiveSupport::TestCase
   include Contexts
   context "Creating a village context" do
     setup do
-      create_users
       create_villages
     end
     
     teardown do
       destroy_villages
-      destroy_users
     end
 
     should "show that def find_coordinates works" do
