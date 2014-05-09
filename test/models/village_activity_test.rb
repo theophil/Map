@@ -4,6 +4,7 @@ class VillageActivityTest < ActiveSupport::TestCase
 #test relationships
   should belong_to(:village)
   should belong_to(:activity)
+  should belong_to(:user)
 
 # test validations
   should validate_presence_of(:village_id)
@@ -33,33 +34,35 @@ class VillageActivityTest < ActiveSupport::TestCase
   include Contexts
   context "Creating a village_activity context" do
     setup do
+      create_users
       create_village_activities
     end
     
     teardown do
+      destrpy_users
       destroy_village_activities
     end
 
     # Unsure how to define model's method thus not using this test
     should "not allow the same activity to be assigned twice to the same village" do
-      bad_assignment = FactoryGirl.build(:village_activity, village: @juvadi, activity: @agdev)
+      bad_assignment = FactoryGirl.build(:village_activity, user: @ed, village: @juvadi, activity: @agdev)
       deny bad_assignment.valid?
     end
 
     should "check to make sure the end date is on or after the start date" do
-      bad_village_activity = FactoryGirl.build(:village_activity,village: @juvadi, activity: @agdev ,start_date: Date.yesterday, end_date: 2.days.ago.to_date)
+      bad_village_activity = FactoryGirl.build(:village_activity, user: @ed,village: @juvadi, activity: @agdev ,start_date: Date.yesterday, end_date: 2.days.ago.to_date)
       deny bad_village_activity.valid?
-      okay_village_activity = FactoryGirl.build(:village_activity, village: @juvadi, activity: @self_help, start_date: Date.today, end_date: 3.days.from_now.to_date)
+      okay_village_activity = FactoryGirl.build(:village_activity, user: @ed, village: @juvadi, activity: @self_help, start_date: Date.today, end_date: 3.days.from_now.to_date)
       assert okay_village_activity.valid?
     end
 
     should "not allow an activity to be assigned an inactive village" do
-      bad_assignment = FactoryGirl.build(:village_activity, village: @ridhora, activity: @agdev)
+      bad_assignment = FactoryGirl.build(:village_activity, user: @ed, village: @ridhora, activity: @agdev)
       deny bad_assignment.valid?
     end
 
     should "not allow a village to be assigned an inactive activity" do
-      bad_assignment = FactoryGirl.build(:village_activity, village: @juvadi, activity: @waterdev)
+      bad_assignment = FactoryGirl.build(:village_activity, user: @ed, village: @juvadi, activity: @waterdev)
       deny bad_assignment.valid?
     end
 

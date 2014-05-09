@@ -2,6 +2,7 @@ class VillageActivity < ActiveRecord::Base
 	# Relationships
 	belongs_to :village
 	belongs_to :activity
+  belongs_to :user
 
 	# Validations
 	validates :activity_id, presence: true, numericality: { greater_than: 0, only_integer: true }

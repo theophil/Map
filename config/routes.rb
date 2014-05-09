@@ -4,6 +4,8 @@ Map::Application.routes.draw do
   resources :villages
 
   resources :activities
+  resources :users
+  resources :sessions
 
     # Additional routes to create for this project
   
@@ -12,10 +14,17 @@ Map::Application.routes.draw do
 
   # get 'home/village_activities.json'
   # Semi-static page routes
-  #get 'home/index', to: 'home#index', as: :home
+
+  #does the same as the above root
+  #get 'home', to: 'home#index', as: :home
+
   get 'home/about', to: 'home#about', as: :about
   get 'home/contact', to: 'home#contact', as: :contact
   get 'home/privacy', to: 'home#privacy', as: :privacy
+  get 'user/edit' => 'users#edit', :as => :edit_current_user
+  get 'signup' => 'users#new', :as => :signup
+  get 'login' => 'sessions#new', :as => :login
+  get 'logout' => 'sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
