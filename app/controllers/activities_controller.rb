@@ -1,5 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  authorize_resource
+  before_action :check_login
 
   # GET /activities
   # GET /activities.json
