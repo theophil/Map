@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password_confirmation, on: :create 
   validates_confirmation_of :password, message: "does not match"
   validates_length_of :password, minimum: 4, message: "must be at least 4 characters long", allow_blank: true
+  validates :role, inclusion: { in: %w[admin], message: "is not a recognized role in system" }
 
   def proper_name
     first_name + " " + last_name
@@ -31,6 +32,12 @@ class User < ActiveRecord::Base
   end
 
   # for use in authorizing with CanCan
+  ROLES = [['Administrator', :admin],['Member', :member]]
+
+  def role?(authorized_role)
+    return false if role.nil?
+    role.downcase.to_sym == authorized_role
+  end
 
   # login by email address
   def self.authenticate(email, password)

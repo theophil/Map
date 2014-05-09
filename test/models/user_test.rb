@@ -7,6 +7,14 @@ class UserTest < ActiveSupport::TestCase
   should validate_presence_of(:last_name)
   should validate_presence_of(:email)
 
+  should allow_value("admin").for(:role)
+  should_not allow_value("instructor").for(:role)
+  should_not allow_value("bad").for(:role)
+  should_not allow_value("hacker").for(:role)
+  should_not allow_value(10).for(:role)
+  should_not allow_value("leader").for(:role)
+  should_not allow_value(nil).for(:role)
+
   should allow_value("fred@fred.com").for(:email)
   should allow_value("fred@andrew.cmu.edu").for(:email)
   should allow_value("my_fred@fred.org").for(:email)
@@ -35,6 +43,12 @@ class UserTest < ActiveSupport::TestCase
     
     should "have working proper_name method" do 
       assert_equal "Ed Gruberman", @ed.proper_name
+    end
+
+    should "have working role? method" do 
+      deny @ed.role?(:member)
+      assert @ed.role?(:admin)
+      assert @fred.role?(:admin)
     end
     
     should "have working class method for authenication" do 
