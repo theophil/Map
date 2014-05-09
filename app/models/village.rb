@@ -12,7 +12,7 @@ class Village < ActiveRecord::Base
 	scope :active, -> { where(active: true) }
 	scope :inactive, -> { where(active: false) }
 	scope :alphabetical, -> { order('name') }
-	scope :has_activities, -> {where()}
+	#scope :has_activities, -> {where()}
 
   # def num_villages
   #   self.id
