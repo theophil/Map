@@ -4,8 +4,6 @@
     <%= f.input :taluka %>
     <%= f.input :district %>
     <%= f.input :state %>
-    <%= f.input :user_id, label: "User", collection: User.active.alphabetical, prompt: "Select user..." %>    
-    
     <%= f.input :active %>
     <div class="form-actions">
       <%= f.submit nil, class: 'button' %>

@@ -1,15 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  # before_action :set_user, only: [:edit, :update, :destroy]
   authorize_resource
-  before_action :check_login
 
   def new
   	@user = User.new
-  end
-
-  def edit
-    #lab13
-    current_user
   end
 
   def create
@@ -22,6 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
+  before_action :check_login
+
+  def edit
+    #lab13
+    @user = User.find(current_user)
+  end
+
   def update
     current_user
     if @user.update(user_params)
@@ -31,19 +32,19 @@ class UsersController < ApplicationController
     end
   end
 
-  #not in lab13
-  def destroy
-    @user.destroy
-    redirect_to users_url, notice: "#{@user.email} was removed from the system."
-  end
+  # #not in lab13
+  # def destroy
+  #   @user.destroy
+  #   redirect_to users_url, notice: "#{@user.email} was removed from the system."
+  # end
 
   private
-  def set_user
-    @user = User.find(params[:id])
-  end
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation, :active)
+    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation, :role, :active)
   end
 
 end
