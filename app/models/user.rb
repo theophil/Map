@@ -2,10 +2,7 @@ class User < ActiveRecord::Base
 
   # Use built-in rails support for password protection
   has_secure_password
-
-  # relationships
-  has_many :villages
-  has_many :activities
+  
   has_many :village_activities
 
   # Scopes

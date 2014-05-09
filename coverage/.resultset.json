@@ -25,8 +25,6 @@
         null,
         null,
         1,
-        1,
-        null,
         null,
         41,
         1,
@@ -40,8 +38,6 @@
         null,
         1,
         1,
-        1,
-        null,
         null,
         1,
         1,
@@ -114,9 +110,6 @@
         null
       ],
       "/vagrant/Map/app/models/user.rb": [
-        1,
-        null,
-        null,
         1,
         null,
         null,
@@ -197,10 +190,9 @@
         0,
         0,
         null,
-        null,
         null
       ]
     },
-    "timestamp": 1399667300
+    "timestamp": 1399667367
   }
 }
