@@ -1,5 +1,6 @@
 class VillageActivitiesController < ApplicationController
   before_action :set_village_activity, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /village_activities
   # GET /village_activities.json

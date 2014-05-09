@@ -35,9 +35,9 @@ module Contexts
     def create_users
       create_village_activities
       @ed   = FactoryGirl.create(:user)
-      @ted  = FactoryGirl.create(:user, first_name: "Ted")
+      @ted  = FactoryGirl.create(:user, first_name: "Ted", email: "ted@example.com")
       @fred = FactoryGirl.create(:user, first_name: "Fred", email: "fred@example.com")
-      @ned  = FactoryGirl.create(:user, first_name: "Ned", active: false)
+      @ned  = FactoryGirl.create(:user, first_name: "Ned", email: "ned@example.com", active: false)
     end
     
     def destroy_users

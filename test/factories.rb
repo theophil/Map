@@ -28,7 +28,9 @@ FactoryGirl.define do
     last_name "Gruberman"
     password "secret"
     password_confirmation "secret"
-    email { |u| "#{u.first_name[0]}#{u.last_name}#{(1..99).to_a.sample}@example.com".downcase }
+    # email { |u| "#{u.first_name[0]}#{u.last_name}#{(1..99).to_a.sample}@example.com".downcase }
+    email "ed@example.com"
+    role "admin"
     active true
   end
 
