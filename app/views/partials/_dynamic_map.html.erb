@@ -23,7 +23,7 @@
         }
       }
 
-      function addMarker(vill_act) {
+      function addMarker() {
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(<%= vill_act.village.latitude %>, <%= vill_act.village.longitude %>),
           title: '<%= vill_act.village.name %>',
