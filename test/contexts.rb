@@ -38,9 +38,9 @@ module Contexts
 # Context for users
     def create_users
       @ed   = FactoryGirl.create(:user)
-      @ted  = FactoryGirl.create(:user, username: "lilteddie", first_name: "Ted")
-      @fred = FactoryGirl.create(:user, username: "lilfred", first_name: "Fred")
-      @ned  = FactoryGirl.create(:user, username: "lilned", first_name: "Ned", active: false)
+      @ted  = FactoryGirl.create(:user, first_name: "Ted")
+      @fred = FactoryGirl.create(:user, first_name: "Fred", email: "fred@example.com")
+      @ned  = FactoryGirl.create(:user, first_name: "Ned", active: false)
     end
     
     def destroy_users

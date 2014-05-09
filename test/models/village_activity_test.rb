@@ -39,7 +39,7 @@ class VillageActivityTest < ActiveSupport::TestCase
     end
     
     teardown do
-      destrpy_users
+      destroy_users
       destroy_village_activities
     end
 
