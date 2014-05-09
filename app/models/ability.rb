@@ -12,10 +12,12 @@ class Ability
         can :show, :all
         can :edit, :all
         can :update, :all
+        can :create, :all
+        can :destroy, :all
       else
         can :read, :all
-        can :index, :all
-        can :show, :all
+        # can :index, :all
+        # can :show, :all
       end
     #
     # The first argument to `can` is the action you are giving the user
