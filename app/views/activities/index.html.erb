@@ -1,29 +1,15 @@
-<h2>Listing Activities</h2>
+<div class="row">
+  <div class="small-7 columns">
+    <!-- MAIN CONTENT GOES HERE -->
+    <%= render :partial => "active_activities" %>
+    <br />
+  </div>
 
-<%= link_to "Add a New Activity", new_activity_path %>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= link_to activity.name, activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity), class: "button tiny radius" %></td>
+  <div class="small-5 columns">
+    <% if logged_in? %>
+      <!-- SIDEBAR CONTENT GOES HERE -->
+      <br /><br /><br /><%= render partial: 'inactive_activities' %><br />
     <% end %>
-  </tbody>
-</table>
-
-<br />
-<!-- Add the pagination using will_paginate gem -->
-<span class="paginate">
-<%= will_paginate @activities, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
-</span>
-
-<br />
+  </div>
+</div>
 

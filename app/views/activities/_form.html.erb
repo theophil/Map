@@ -1,4 +1,7 @@
 <%= simple_form_for(@activity, html: { class: 'form-horizontal' }) do |f| %>
+  
+  <h3><%= controller.action_name.capitalize %> Activity</h3>
+
   <fieldset>
       <%= f.input :name %>
       <%= f.input :active %>

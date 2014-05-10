@@ -1,11 +1,11 @@
 <p>
-  <a href="index">Home</a>&nbsp;&nbsp;::&nbsp;&nbsp;
-  <a href="about">About Us</a>&nbsp;&nbsp;::&nbsp;&nbsp;
-  <a href="contact">Contact Us</a>&nbsp;&nbsp;::&nbsp;&nbsp;
-  <a href="privacy">Privacy Policy</a>
+  <%= link_to 'Home', home_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <%= link_to 'About Us', about_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <%= link_to 'Contact Us', contact_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <%= link_to 'Privacy Policy', privacy_path %>
 </p>
 <div id="copyright">
-  <br />Webmasters: <%= mail_to "tonime@andrew.cmu.edu", "Theophilus Onime", :encode => "javascript" %> |
+  Webmasters: <%= mail_to "tonime@andrew.cmu.edu", "Theophilus Onime", :encode => "javascript" %> |
   <%= mail_to "gbonker@andrew.cmu.edu", "Gale Bonker", :encode => "javascript" %>
     &nbsp;&nbsp;Copyright 2014
   <br /><br />

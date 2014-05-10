@@ -1,7 +1,5 @@
 <h2>Village Details</h2>
 
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @village.name %>
@@ -11,16 +9,6 @@
   <strong>Activities:</strong>
   <%= @active_activities %>
 </p>
-
-<!-- <p>
-  <strong>Longitude:</strong>
-  <%= @village.longitude %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @village.latitude %>
-</p> -->
 
 <p>
   <strong>State:</strong>
@@ -38,11 +26,14 @@
 </p>
 
 <p>
-  <strong>Active:</strong>
+  <strong>Active?</strong>
   <%= @village.active ? "Yes" : "No" %>
 </p>
 
-
-<%= link_to 'Edit', edit_village_path(@village) %> |
-<%= link_to 'Back to All Villages', villages_path %><br><br>
-<%= link_to 'Destroy', @village, data: { confirm: 'Are you sure?' }, method: :delete, class: "button tiny round alert" %>
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_village_path(@village), class: "button tiny radius" %>
+<% end %>
+<%= link_to 'Back to All Villages', villages_path, class: "button tiny radius" %><br>
+<% if logged_in? %>
+  <%= link_to 'Destroy', @village, data: { confirm: 'Are you sure?' }, method: :delete, class: "button tiny round alert" %>
+<% end %>

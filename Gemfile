@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.1.5'
 
+# gem used for authorization and authentication
 gem 'cancancan'
 
+# gem used to get longitude and latitude coordinates in order to map villages
 gem 'geocoder'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -45,7 +47,7 @@ gem 'will_paginate'
 # Use a gem for handling date validation
 gem 'validates_timeliness'
 
-#from lab 8
+# gems used for design and making input forms
 gem 'foundation-rails'
 gem 'simple_form'
 

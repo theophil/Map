@@ -1,8 +1,9 @@
 <h2>Listing Village-Activities</h2>
 
-<p>If you would like a village to appear on the map, click on "Add a New Village-Activity" and associate that village with its appropriate activity.</p>
-
-<%= link_to "Add a New Village-Activity", new_village_activity_path %>
+<% if logged_in? %>
+  <p>If you would like a village to appear on the map, click on "Add a New Village-Activity" and associate that village with its appropriate activity.</p>
+  <%= link_to "Add a New Village-Activity", new_village_activity_path, class: "button tiny radius" %>
+<% end %>
 
 <table class="table">
   <thead>
@@ -16,18 +17,18 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @village_activities.chronological.each do |village_activity| %>
-      <tr>
-        <td><%= link_to village_activity.village_name, village_activity_path(village_activity) %></td>        
-        <td><%= link_to village_activity.activity_name, village_activity_path(village_activity) %></td>
-        <td><%= village_activity.start_date.strftime('%m/%d/%y') if village_activity.start_date != nil %></td>
-        <td><%= village_activity.end_date.strftime('%m/%d/%y') if village_activity.end_date != nil %></td>
-        <td><%= link_to 'Show', village_activity %></td>
+  <% @village_activities.each do |village_activity| %>
+    <tr>
+      <td><%= link_to village_activity.village_name, village_path(village_activity.village) %></td>        
+      <td><%= link_to village_activity.activity_name, activity_path(village_activity.activity) %></td>
+      <td><%= village_activity.start_date.strftime('%m/%d/%y') if village_activity.start_date != nil %></td>
+      <td><%= village_activity.end_date.strftime('%m/%d/%y') if village_activity.end_date != nil %></td>
+      <td><%= link_to 'Show', village_activity_path(village_activity), class: "button tiny radius" %></td>
+      <% if logged_in? %>
         <td><%= link_to 'Edit', edit_village_activity_path(village_activity), class: "button tiny radius" %></td>
-      </tr>
-    <% end %>
-  </tbody>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
 
 <br />
