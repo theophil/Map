@@ -33,6 +33,7 @@ module Contexts
 
 # Context for users
     def create_users
+      create_village_activities
       @ed   = FactoryGirl.create(:user)
       @ted  = FactoryGirl.create(:user, first_name: "Ted", email: "ted@example.com")
       @fred = FactoryGirl.create(:user, first_name: "Fred", email: "fred@example.com")
@@ -40,6 +41,7 @@ module Contexts
     end
     
     def destroy_users
+      destroy_village_activities
       @ed.destroy
       @ted.destroy
       @fred.destroy

@@ -1,0 +1,35 @@
+<% if logged_in? %>
+  <h2>Active Activities</h2>
+<% else %>
+  <h2>Activities</h2>
+<% end %>
+
+<% if logged_in? %>
+  <%= link_to "Add a New Activity", new_activity_path, class: "button tiny radius" %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @active_activities.each do |activity| %>
+    <tr>
+      <td><%= link_to activity.name, activity %></td>
+      <% if logged_in? %>
+        <td><%= link_to 'Edit', edit_activity_path(activity), class: "button tiny radius" %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+  <%= will_paginate @active_activities, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<br />

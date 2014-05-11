@@ -1,28 +1,4 @@
-== README
+== Bajaj Foundation Map
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a dynamic Google Maps application that maps villages that the Bajaj Foundation has done work in in Wardha, Maharashtra, India. Administrators (people who log in) can add, edit, and delete villages and activities. If an administrator wants to add a marker to the map, they must add a "Village-Activity" by pairing a village in the system with an activity in the system. Contact one of us for the login information.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

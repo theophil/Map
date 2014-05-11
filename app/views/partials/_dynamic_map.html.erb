@@ -6,7 +6,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArRRQgBv9OAQ5ohEYrFwd1PX97V-VZv00&sensor=false">
     </script>
     <script type="text/javascript">
-    // var vill_acts = <% @village_activities %>;
     var vill_acts_length = <% @village_activities.size %>;
     var map;
       function initialize() {
@@ -24,12 +23,12 @@
         }
       }
 
-      function addMarker(vill_act) {
+      function addMarker() {
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(<%= vill_act.village.latitude %>, <%= vill_act.village.longitude %>),
           title: '<%= vill_act.village.name %>',
           map: map
-          })
+        })
       }
 
       google.maps.event.addDomListener(window, 'load', initialize);

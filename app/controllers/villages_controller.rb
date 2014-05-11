@@ -5,7 +5,8 @@ class VillagesController < ApplicationController
   # GET /villages
   # GET /villages.json
   def index
-    @villages = Village.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @active_villages = Village.active.alphabetical.paginate(:page => params[:page]).per_page(10)
+    @inactive_villages = Village.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   # GET /villages/1

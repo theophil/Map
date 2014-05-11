@@ -1,0 +1,62 @@
+  <div class="contain-to-grid">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="has-dropdown">
+          <%= link_to image_tag('bajaj_logo.png'), home_path %>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="left">
+          <!--Other pages stemming home-->
+          <li class="has-dropdown">
+            <%= link_to "Home", home_path %>
+            <ul class="dropdown">
+              <li><%= link_to "About Us", about_path %></li>
+              <li><%= link_to "Contact Us", contact_path %></li>
+              <li><%= link_to "Privacy Policy", privacy_path %></li>
+            </ul>
+          </li>
+          <!--Activities-->
+          <li class="has-dropdown">
+            <%= link_to "Activities", activities_path %>
+            <% if logged_in? %>
+              <ul class="dropdown">
+                <li><%= link_to "List Activities", activities_path %></li>
+                <li><%= link_to "Add an Activity", new_activity_path %></li>
+              </ul>
+            <% end %>
+          </li>
+          <!--Villages-->
+          <li class="has-dropdown">
+            <%= link_to "Villages", villages_path %>
+            <% if logged_in? %>
+              <ul class="dropdown">
+                <li><%= link_to "List Villages", villages_path %></li>
+                <li><%= link_to "Add a Village", new_village_path %></li>
+              </ul>
+            <% end %>
+          </li>
+          <!--Village Activities-->
+          <li class="has-dropdown">
+            <%= link_to "Village-Activities", village_activities_path %>
+            <% if logged_in? %>
+              <ul class="dropdown">
+                <li><%= link_to "List Village-Activities", village_activities_path %></li>
+                <li><%= link_to "Add a Village-Activity", new_village_activity_path %></li>
+              </ul>
+            <% end %>
+          </li>
+        </ul>
+
+        <div id="login">
+          <% if logged_in? %>
+            <%= link_to 'Logout', logout_path %><%# current_user.email %>
+          <% else %>
+            <%= link_to 'Login', login_path %>
+          <% end %>
+        </div>
+       
+
+      </section>
+    </nav>
+  </div>

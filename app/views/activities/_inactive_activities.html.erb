@@ -1,0 +1,10 @@
+<% unless @inactive_activities.empty? %>
+  <div class="panel clearfix">
+    <h5>Inactive Activities</h5>
+    <ul class="side-nav">
+      <% @inactive_activities.each do |activity| %>
+        <li><%= link_to activity.name, activity_path(activity) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

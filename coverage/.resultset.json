@@ -1,23 +1,49 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/vagrant/map/app/helpers/activities_helper.rb": [
+      "/vagrant/Map/app/models/village.rb": [
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        52,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        12,
+        12,
+        null,
+        12,
+        null,
+        12,
+        12,
+        null,
+        null,
         null
       ],
-      "/vagrant/map/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/vagrant/map/app/helpers/village_activities_helper.rb": [
-        1,
-        null
-      ],
-      "/vagrant/map/app/helpers/villages_helper.rb": [
-        1,
-        null
-      ],
-      "/vagrant/map/app/models/activity.rb": [
+      "/vagrant/Map/app/models/activity.rb": [
         1,
         null,
         1,
@@ -28,14 +54,14 @@
         1,
         null,
         null,
-        54,
-        3,
-        2,
+        52,
+        1,
+        1,
         null,
         null,
         null
       ],
-      "/vagrant/map/app/models/village_activity.rb": [
+      "/vagrant/Map/app/models/village_activity.rb": [
         1,
         null,
         1,
@@ -84,7 +110,7 @@
         null,
         1,
         51,
-        1,
+        2,
         null,
         null,
         null,
@@ -113,7 +139,7 @@
         null,
         null
       ],
-      "/vagrant/map/app/models/user.rb": [
+      "/vagrant/Map/app/models/user.rb": [
         1,
         null,
         null,

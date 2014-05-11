@@ -4,7 +4,7 @@ class Village < ActiveRecord::Base
 	has_many :activities, through: :village_activities
 
 	#validations
-	validates_presence_of :district, :taluka, :state
+	validates_presence_of :state
 	validates :name, presence: true, uniqueness: { case_sensitive: false }
 
 
@@ -27,8 +27,8 @@ class Village < ActiveRecord::Base
  	
   private
 	def find_coordinates
-		return nil if (self.name.nil? || self.taluka.nil? || self.district.nil? || self.state.nil?)
-		coords = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state)
+		return nil if (self.name.nil? || self.state.nil?)
+		coords = Geocoder.coordinates(self.name+", "+self.taluka+", "+self.district+", "+self.state+", India")
 		#first index of coordinates
 		self.latitude = coords[0]
 		#second index of coordinates

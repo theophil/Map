@@ -1,0 +1,38 @@
+<% if logged_in? %>
+  <h2>Active Villages</h2>
+<% else %>
+  <h2>Villages</h2>
+<% end %>
+
+<% if logged_in? %>
+  <%= link_to "Add a New Village", new_village_path, class: "button tiny radius" %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Taluka</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @active_villages.each do |village| %>
+    <tr>
+      <td><%= link_to village.name, village %></td>
+      <td><%= village.taluka %></td>
+      <% if logged_in? %>
+        <td><%= link_to 'Edit', edit_village_path(village), class: "button tiny radius" %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<!-- Add the pagination using will_paginate gem -->
+<span class="paginate">
+<%= will_paginate @active_villages, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+</span>
+
+<br />
