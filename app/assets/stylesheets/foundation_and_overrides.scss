@@ -40,9 +40,9 @@
 // $total-columns: 12;
 
 // We use these to control various global styles
-// $body-bg: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+   $body-bg: #FFE0B2;
+   $body-font-color: #000024;
+   $body-font-family: "Tahoma";
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -69,7 +69,7 @@
 // We use these to control inset shadow shiny edges and depressions.
 // $shiny-edge-size: 0 1px 0;
 // $shiny-edge-color: rgba(#fff, .5);
-// $shiny-edge-active-color: rgba(#000, .2);
+$shiny-edge-active-color: rgba(#fff, .2);
 
 // Media Query Ranges
 // $small-range: (0em, 40em);
@@ -316,7 +316,7 @@
 // $include-html-button-classes: $include-html-classes;
 
 // We use these to build padding for buttons.
-   $button-tny: rem-calc(6);
+   $button-tny: rem-calc(8);
 // $button-sml: rem-calc(14);
 // $button-med: rem-calc(16);
 // $button-lrg: rem-calc(18);
@@ -327,8 +327,8 @@
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
-// $button-font-color: #fff;
-// $button-font-color-alt: #333;
+   $button-font-color: #fff;
+   $button-font-color-alt: #fff;
    $button-font-tny: rem-calc(9);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);
@@ -483,7 +483,7 @@
 // $form-label-font-size: rem-calc(14);
 // $form-label-font-weight: normal;
 // $form-label-line-height: 1.5;
-// $form-label-font-color: scale-color(#000, $lightness: 30%);
+$form-label-font-color: scale-color(#fff, $lightness: 30%);
 // $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
@@ -580,7 +580,7 @@
 // This adjusts the styles for the timer when its enabled
 // $joyride-tip-timer-width: 50px;
 // $joyride-tip-timer-height: 3px;
-// $joyride-tip-timer-color: #666;
+   $joyride-tip-timer-color: #fff;
 
 // This changes up the styles for the close button
 // $joyride-tip-close-color: #777;
@@ -685,9 +685,9 @@
 // Off Canvas Back-Link Overlay
 // $off-canvas-overlay-transition: background 300ms ease;
 // $off-canvas-overlay-cursor: pointer;
-// $off-canvas-overlay-box-shadow: -4px 0 4px rgba(#000, 0.5), 4px 0 4px rgba(#000, 0.5);
-// $off-canvas-overlay-background: rgba(#FFF, 0.2);
-// $off-canvas-overlay-background-hover: rgba(#FFF, 0.05);
+$off-canvas-overlay-box-shadow: -4px 0 4px rgba(#fff, 0.0), 4px 0 4px rgba(#fff, 0.0);
+$off-canvas-overlay-background: rgba(#FFF, 0.0);
+$off-canvas-overlay-background-hover: rgba(#fff, 0.0);
 
 // Transition Variables
 // $menu-slide: "transform 500ms ease";
@@ -866,15 +866,15 @@
 // $include-html-reveal-classes: $include-html-classes;
 
 // We use these to control the style of the reveal overlay.
-// $reveal-overlay-bg: rgba(#000, .45);
-// $reveal-overlay-bg-old: #000;
+$reveal-overlay-bg: rgba(#fff, .45);
+$reveal-overlay-bg-old: #fff;
 
 // We use these to control the style of the modal itself.
 // $reveal-modal-bg: #fff;
 // $reveal-position-top: 50px;
 // $reveal-default-width: 80%;
 // $reveal-modal-padding: rem-calc(20);
-// $reveal-box-shadow: 0 0 10px rgba(#000,.4);
+$reveal-box-shadow: 0 0 10px rgba(#fff,.4);
 
 // We use these to style the reveal close button
 // $reveal-close-font-size: rem-calc(22);
@@ -1033,7 +1033,7 @@
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-$table-even-row-bg: #BEB6B6;
+$table-even-row-bg: #B8FF94;
 
 // These control the table cell border style
    $table-border-style: none;
@@ -1041,7 +1041,7 @@ $table-even-row-bg: #BEB6B6;
 // $table-border-color: #ddd;
 
 // These control the table head styles
-// $table-head-bg: #f5f5f5  ;
+$table-head-bg: #5CDE5C;
 // $table-head-font-size: rem-calc(14);
 // $table-head-font-color: #222;
 // $table-head-font-weight: bold;
@@ -1090,7 +1090,7 @@ $table-even-row-bg: #BEB6B6;
 // $thumb-border-style: solid;
 // $thumb-border-width: 4px;
 // $thumb-border-color: #fff;
-// $thumb-box-shadow: 0 0 0 1px rgba(#000,.2);
+$thumb-box-shadow: 0 0 0 1px rgba(#fff,.2);
 // $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);
 
 // Radius and transition speed for thumbs
@@ -1131,8 +1131,8 @@ $table-even-row-bg: #BEB6B6;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: #333;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: #000037;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
 // $topbar-height: 45px;
@@ -1143,23 +1143,23 @@ $table-even-row-bg: #BEB6B6;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: #333;
-// $topbar-dropdown-link-color: #fff;
-// $topbar-dropdown-link-bg: #333;
+$topbar-dropdown-bg: #000037;
+$topbar-dropdown-link-color: #fff;
+$topbar-dropdown-link-bg: #000066;
 // $topbar-dropdown-link-weight: normal;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
-// $topbar-link-color-hover: #fff;
-// $topbar-link-color-active: #fff;
-// $topbar-link-color-active-hover: #fff;
+$topbar-link-color: #fff;
+$topbar-link-color-hover: #fff;
+$topbar-link-color-active: #fff;
+$topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size: rem-calc(16);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: #272727;
+$topbar-link-bg-hover: #000066;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
@@ -1207,3 +1207,18 @@ $table-even-row-bg: #BEB6B6;
 // $include-legacy-visibility-classes: true;
 
 @import 'foundation';
+
+#footer {
+  margin:0;
+  padding:10px 15px 5px 15px;
+  text-align:center;
+  font-size: 80%;
+}
+
+#copy a {
+  text-decoration: none;
+}
+
+#copy a:hover {
+  text-decoration: none;
+}
