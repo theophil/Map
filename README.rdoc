@@ -1,4 +1,4 @@
 == Bajaj Foundation Map
 
-This is a dynamic Google Maps application that maps villages that the Bajaj Foundation has done work in in Wardha, Maharashtra, India. Administrators (people who log in) can add, edit, and delete villages and activities. If an administrator wants to add a marker to the map, they must add a "Village-Activity" by pairing a village in the system with an activity in the system. Contact one of us for the login information.
+This is a dynamic Google Maps application that maps villages in which the Bajaj Foundation has done work in Wardha, Maharashtra, India. Administrators (people who log in) can add, edit, and delete villages and activities. If an administrator wants to add a marker to the map, they must add a "Village-Activity" by pairing a village in the system with an activity in the system. Contact one of us for the login information.
 
